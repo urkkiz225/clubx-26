@@ -1,7 +1,7 @@
 {
   "name": "clubx-26",
   "version": "0.1.0",
-  "homepage": "https://urkkiz225.github.io/clubx-26/",
+  "homepage": "https://urkkiz225.github.io/clubx-26",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
@@ -10,16 +10,17 @@
     "@testing-library/user-event": "^13.5.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
+    "react-player": "^3.4.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run deploy",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
