@@ -1,58 +1,108 @@
 body {
-  background-color: black;
+  background-color: rgb(0, 0, 0);
   margin: 0;
   padding:0;
   overflow-x:hidden;
   overflow-y:visible;
+  min-height: 500vh;
+  max-height: 500vh;
+  background-image: radial-gradient(transparent, black), radial-gradient(transparent, rgba(0,0,0,0.4)), linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.9) 100%), url("./Assets/cinemascreen_replaced_screenblack.jpg");
+  background-color: #000000;
+  background-size: auto 66%;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
 }
 
 html{
   margin: 0;
   padding:0;
-  overflow-x:hidden;
+  overflow-x:clip;
   overflow-y:visible;
+  /*varmistus että kans toimii vanhemmilla malleilla*/
+  min-height: 300vh;
+  max-height: 300vh;
+}
+
+.videoPlayer{
+  box-shadow: 10px 10px 10px #1d0101;
+  background-color:rgb(14,0,0);
+  z-index: 999;
+  box-shadow: 0 0 10px #747474, 0 0 20px #1b0303, 0 0 300px #1b0303;
+  animation: shiftBorderColor 16s linear infinite;
+  border-style:groove;
+  border-width: 4px;
+}
+
+@keyframes shiftBorderColor {
+  from {
+    border-color: #141414;
+  }
+  to {
+    border-color: #0c0000;
+  }
+  to { /*joskus toimi ilman tätä kolmatta keyframee ja sit kaikki hajos xd*/
+    border-color: #141414;
+  }
 }
 
 .App {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.aspectRatio {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+
+
+.videoWrapper {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  position: relative;
+  width:40vw;
+  min-width: 300px;
 }
 
-.App-link {
-  color: #61dafb;
+.ambilightWrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.positionWrapper {
+  margin-left: 15vw;
+  margin-right:15vw;
+  position:sticky;
+  /*pässää offset value tänne ? */
+  top:564px;
+  z-index:999;
 }
+
+#video {
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
+
+#ambilight {
+  filter: blur(max(50px, 9vw)) opacity(0.5) saturate(100%) grayscale(0.4); 
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  transform: scale(1.05) translateZ(0);
+  width: 100%;
+  z-index: -1;
+  height: 100%;
+}
+
