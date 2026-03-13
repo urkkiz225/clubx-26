@@ -173,3 +173,16 @@ h2 {
   pointer-events: none;
   z-index: 3;
 }
+
+.infoText{
+  color:white; 
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items:center;
+  text-align: center; 
+  position:relative;
+  z-index:3;
+  max-width: 80%;
+  margin: 7.5vw;
+}

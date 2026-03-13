@@ -25,7 +25,7 @@ const CurtainEffect = ({blurCurtains = true, top = '0'} /*todo tee tällä param
   const curtainProgressX_1 = useTransform(smoothProgress, [0, 1.75], ['-100%', '0%']); //äähhh menee aivot solmuun krkrääähähh
   const curtainProgressX_2 = useTransform(smoothProgress, [0, 1.75], ['100%', '0%']);
   const gradientOpacity = useTransform(scrollYProgress, [0,1], [/*opacity -0.2 tuntuu vähän rankalta emt pitäskö tää tehä tälleen :DD*/-0.2,1])
-  const curtainBlurRadius = useMotionTemplate`blur(${useTransform(scrollYProgress, [0,0.8 /*note to self väänä tästä napista jos haluut enemmän / vähemmän blurii :3*/], [12,0])}px)`; //huhhuh että framer-motionia on pelottava käyttää onneks on hyvät docsit
+  const curtainBlurRadius = useMotionTemplate`blur(${useTransform(scrollYProgress, [0,0.60 /*note to self väänä tästä napista jos haluut enemmän / vähemmän blurii :3*/], [12,0])}px)`; //huhhuh että framer-motionia on pelottava käyttää onneks on hyvät docsit
   
   return (
     <div ref={containerRef} style={{ height: 'max(150svw, 150svh)', position: 'absolute', width: '100%', left:0}}>

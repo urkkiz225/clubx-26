@@ -44,19 +44,7 @@ function App() {
         isMobile = {isMobile}
       />
         {/*todo fix mobile bg scaling (ipad for example)*/}
-        <div style = {{
-            /*todo siirrä tää css:ään*/
-            color:'white', 
-            display:'flex',
-            flexDirection:'column', 
-            justifyContent: 'center', 
-            alignItems:'center', 
-            textAlign:'center', 
-            top: isMobile ? '300px' : '70vw' /*alkaa vähän epäilyttää näin monet mobiilicheckit hmm aijai*/,
-            position:'relative',
-            zIndex:'3',
-            maxWidth: '80%',
-            margin: '7.5vw'}}>
+        <div className = 'infoText' style = {{top: isMobile ? '300px' : '70vw' /*alkaa vähän epäilyttää näin monet mobiilicheckit hmm aijai*/}}>
             <h1>CLUB X 2026</h1>
             <h2>
                 Tervetuloa Otaniemen tällä kertaa OIKEASTI haippisimpaan opiskelijatapahtumaan, 

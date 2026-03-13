@@ -6,11 +6,11 @@ const FRAMERATE = 30;
 
 //shout out react-ambilight package @ https://github.com/brunos3d/video-ambilight !!!! :33
 const VideoPlayer = ({url, isMobile}) => {
-  var portrait = window.screen.orientation.type === 'landscape-primary' 
-    || window.screen.orientation.type === 'landscape-secondary';
+  var portrait = !(window.screen.orientation.type === 'landscape-primary' 
+    || window.screen.orientation.type === 'landscape-secondary');
   window.screen.orientation.addEventListener('change', () => {
-      portrait = window.screen.orientation.type === 'landscape-primary' 
-    || window.screen.orientation.type === 'landscape-secondary';
+      portrait = !(window.screen.orientation.type === 'landscape-primary' 
+    || window.screen.orientation.type === 'landscape-secondary');
       document.getElementById('videoPlayer').style.transform = portrait ? 'scale(0.75)': 'scale(1.25)';
       document.getElementById('videoPlayer').style.maxWidth = portrait?'500px':'1000px'
   });
