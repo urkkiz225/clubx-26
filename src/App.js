@@ -18,7 +18,7 @@ function App() {
                 document.body.style.backgroundSize = "min(350svw, 350svh)" /*pistää vaakasuunnanki mobiililla toimimaan*/
             }else{
                 /*todo jotai hienoi juttui taustakuvaan joka saa näyttää "valkokankaan" enemmän valkokankaalta*/
-                document.body.style.backgroundSize = "auto 66%;"
+                document.body.style.backgroundSize = "116svw"
             }
         };
         const handleResize = () => {
