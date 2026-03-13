@@ -5,7 +5,15 @@ const FRAMERATE = 30;
 
 
 //shout out react-ambilight package @ https://github.com/brunos3d/video-ambilight !!!! :33
-const VideoPlayer = ({url}) => {
+const VideoPlayer = ({url, isMobile}) => {
+  var portrait = window.screen.orientation.type === 'landscape-primary' 
+    || window.screen.orientation.type === 'landscape-secondary';
+  window.screen.orientation.addEventListener('change', () => {
+      portrait = window.screen.orientation.type === 'landscape-primary' 
+    || window.screen.orientation.type === 'landscape-secondary';
+      document.getElementById('videoPlayer').style.transform = portrait ? 'scale(0.75)': 'scale(1.25)';
+      document.getElementById('videoPlayer').style.maxWidth = portrait?'500px':'1000px'
+  });
   useEffect(() => {
     const canvas = document.getElementById('ambilight');
     const context = canvas.getContext('2d');
@@ -19,6 +27,7 @@ const VideoPlayer = ({url}) => {
     function stopAmbilightRepaint() {
         clearInterval(intervalId);
     }    
+    //ei näitä käytännösä tarvis ku video pyörii loopil ilman kontrollei mut nojaa
     video.addEventListener('seeked', repaintAmbilight);
     video.addEventListener('load', repaintAmbilight);
     video.addEventListener('play', startAmbilightRepaint);
@@ -31,7 +40,7 @@ const VideoPlayer = ({url}) => {
   return (
     //kyllästyin positionilla leikkimiseen näissä nii we love 10 stacked wrappers
     <div className = "positionWrapper"> 
-      <div className="videoWrapper">
+      <div className="videoWrapper" id = 'videoPlayer' style = {isMobile?{top:'-350px', marginTop:'650px', transform: portrait ? 'scale(0.75)': 'scale(1.25)', maxWidth:portrait?'500px':'1000px'}:{}}>
           <div className="ambilightWrapper">
               <div className="aspectRatio">
                   <video id="video" className='videoPlayer'

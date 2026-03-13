@@ -1,6 +1,6 @@
 {
   "name": "clubx-26",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "homepage": "https://urkkiz225.github.io/clubx-26",
   "private": true,
   "dependencies": {
@@ -8,6 +8,7 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^13.5.0",
+    "motion": "^12.36.0",
     "react": "^19.2.4",
     "react-ambilight": "^1.1.0",
     "react-dom": "^19.2.4",
