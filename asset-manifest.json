@@ -1,19 +1,24 @@
 {
   "files": {
-    "main.css": "/clubx-26/static/css/main.bbdb5ee7.css",
-    "main.js": "/clubx-26/static/js/main.14c912d4.js",
+    "main.css": "/clubx-26/static/css/main.e6a681f4.css",
+    "main.js": "/clubx-26/static/js/main.acd78e8c.js",
     "static/js/453.c6d0031e.chunk.js": "/clubx-26/static/js/453.c6d0031e.chunk.js",
+    "static/media/spotlight_texturedbeam.png": "/clubx-26/static/media/spotlight_texturedbeam.81996a6d482a0579e69b.png",
     "static/media/curtains_wavy_right2_edited_unblurred.png": "/clubx-26/static/media/curtains_wavy_right2_edited_unblurred.ce9f9b8bbc3ac1decf99.png",
     "static/media/curtains_wavy_left2_edited_unblurred.png": "/clubx-26/static/media/curtains_wavy_left2_edited_unblurred.3021606da75bee5e1799.png",
     "static/media/cinemascreen_replaced_screenblack.jpg": "/clubx-26/static/media/cinemascreen_replaced_screenblack.cc7a12a8dc0e4cec1174.jpg",
     "static/media/header_underline.png": "/clubx-26/static/media/header_underline.cccfdc7c28ecdafa7fd9.png",
+    "static/media/header.png": "/clubx-26/static/media/header.86227534aef33c27eb31.png",
     "index.html": "/clubx-26/index.html",
-    "main.bbdb5ee7.css.map": "/clubx-26/static/css/main.bbdb5ee7.css.map",
-    "main.14c912d4.js.map": "/clubx-26/static/js/main.14c912d4.js.map",
+    "static/media/instagram.svg": "/clubx-26/static/media/instagram.9719488534f8c429d200362e22bec340.svg",
+    "static/media/kide_app.svg": "/clubx-26/static/media/kide_app.c07f14dd7588133214e51b4e73372d8a.svg",
+    "static/media/telegram.svg": "/clubx-26/static/media/telegram.2c8b5697360959523bad4af9177ea58f.svg",
+    "main.e6a681f4.css.map": "/clubx-26/static/css/main.e6a681f4.css.map",
+    "main.acd78e8c.js.map": "/clubx-26/static/js/main.acd78e8c.js.map",
     "453.c6d0031e.chunk.js.map": "/clubx-26/static/js/453.c6d0031e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bbdb5ee7.css",
-    "static/js/main.14c912d4.js"
+    "static/css/main.e6a681f4.css",
+    "static/js/main.acd78e8c.js"
   ]
 }
