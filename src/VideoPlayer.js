@@ -4,7 +4,7 @@ let intervalId;
 const FRAMERATE = 30;
 
 
-//shout out react-ambilight package @ https://github.com/brunos3d/video-ambilight !!!! :33
+//shout out react-ambilight package @ https://github.com/brunos3d/video-ambilight !!!! :33 ᓚᘏᗢ
 const VideoPlayer = ({url, isMobile}) => {
   var portrait = !(window.screen.orientation.type === 'landscape-primary' 
     || window.screen.orientation.type === 'landscape-secondary');
@@ -27,7 +27,7 @@ const VideoPlayer = ({url, isMobile}) => {
     function stopAmbilightRepaint() {
         clearInterval(intervalId);
     }    
-    //ei näitä käytännösä tarvis ku video pyörii loopil ilman kontrollei mut nojaa
+    //ei näitä käytännösä tarvis ku video pyörii loopil ilman kontrollei mut nojaa 
     video.addEventListener('seeked', repaintAmbilight);
     video.addEventListener('load', repaintAmbilight);
     video.addEventListener('play', startAmbilightRepaint);
@@ -38,18 +38,25 @@ const VideoPlayer = ({url, isMobile}) => {
   }, []);
   //jos ambilight ei toimi testaa refreshaa
   return (
-    //kyllästyin positionilla leikkimiseen näissä nii we love 10 stacked wrappers
+    //kyllästyin positionilla leikkimiseen näissä nii we love 10 stacked wrappers ᓚᘏᗢ
     <div className = "positionWrapper"> 
-      <div className="videoWrapper" id = 'videoPlayer' style = {isMobile?{top:'-350px', marginTop:'650px', transform: portrait ? 'scale(0.75)': 'scale(1.25)', maxWidth:portrait?'500px':'1000px'}:{}}>
+      <div className="videoWrapper" id = 'videoPlayer' style = {
+        isMobile ?
+        {
+          top:'-350px',
+          marginTop:'650px',
+          transform: portrait ? 'scale(0.75)' : 'scale(1.25)',
+           maxWidth:portrait?'500px':'1000px'
+           }:{}}>
           <div className="ambilightWrapper">
               <div className="aspectRatio">
                   <video id="video" className='videoPlayer'
-                      src = {url}
-                      controls={false}
-                      autoPlay
-                      muted
-                      loop = {true}
-                      ></video>
+                    src = {url}
+                    controls={false}
+                    autoPlay
+                    muted
+                    loop = {true}
+                  />
               </div>
               <canvas id="ambilight"></canvas>
           </div>

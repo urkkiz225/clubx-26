@@ -2,7 +2,12 @@ import './App.css';
 import VideoPlayer from './VideoPlayer.js';
 import CurtainEffect from './CurtainEffect.js';
 import HeaderLogo from './Assets/header_underline.png'
+import TelegramLogo from './Assets/HeaderButtons/telegram.svg';
+import InstagramLogo from './Assets/HeaderButtons/instagram.svg';
+import KideAppLogo from './Assets/HeaderButtons/kide_app.svg';
+
 import { useEffect, useState } from 'react';
+import LightsEffect from './LightsEffect.js';
 
 
 function App() {
@@ -27,52 +32,41 @@ function App() {
         }
         window.addEventListener('resize', handleResize);
         checkMobile();
-    });
-    /*todo punasta hehkuu noilt reunoilt sit ku toi kuva loppuu*/
+    }, []);
+    /*todo punasta hehkuu noilt reunoilt sit ku toi kuva loppuu*/ //TODO kaks mieti vielä tätä
   return (
     <div className='App'>
-        {isMobile ? (<header className = 'headerMobile'></header>):""}
+        {isMobile 
+            ? (<header className = 'headerMobile'></header>)
+            : <header className = 'headerDesktop'>
+                <div className = 'headerButtons'>
+                    <img src = {TelegramLogo} alt = 'telegram logo'/>
+                    <img src = {InstagramLogo} alt = 'instagram logo'/>
+                    <img src = {KideAppLogo} alt = 'kide.app logo'/>
+                </div>
+            </header>
+        }
         <header className = "headerImage" style={{marginTop:'100px', top: isMobile ? "min(30svw:-300px)":"-2rem",
             maxWidth: isMobile ? "100svh" : "40vw"}}>
-            <img src={HeaderLogo} alt="header hedari" style={{width: "100%", height: "auto", display: "block"}}/>
+            <img src={HeaderLogo} alt="header mobiili" style={{width: "100%", height: "auto", display: "block"}}/>
         </header>
-        {/*TODO mieti sopiiks tää mobiilille vai ei.*/}
-        (<CurtainEffect blurCurtains = {!isMobile}/>)
-      <VideoPlayer id = 'video'
-        //lisää process.env.PUBLIC_URL pathii jos haet jotai staticMedia folderista
-        url = {process.env.PUBLIC_URL + "/staticMedia/club-x_promo.MOV" }
-        isMobile = {isMobile}
-      />
-        {/*todo fix mobile bg scaling (ipad for example)*/}
-        <div className = 'infoText' style = {{top: isMobile ? '300px' : '70vw' /*alkaa vähän epäilyttää näin monet mobiilicheckit hmm aijai*/}}>
-            <h1>CLUB X 2026</h1>
-            <h2>
-                Tervetuloa Otaniemen tällä kertaa OIKEASTI haippisimpaan opiskelijatapahtumaan, 
-                nimittäin Athenen vuosittaisiin fuksijuhliin Club X:ään, jonka teemana on tänä vuonna Club ABSOLUTE CINEMA!
-                Pukeudu siis oman elämän elokuvasti main characteriksi ja dominoi iltaa upeassa seurassa 2.4. osoitteessa Betonimiehenkuja 3!
-            </h2>
-            <h1 style = {{marginTop: '10vw'}}>ARTISTIT JA ESIINTYJÄT</h1>
-            <h2>
-                Illan upeina esiintyjinä on, öö, ATK!!!!!! ja kanssa öö RETUPERÄN BEEWEEKOO!! joo!! Kanssa lisää mysteerihenkilöitä...
-            </h2>
-            <h1 style = {{marginTop: '10vw'}}>AIKATAULU</h1>
-            <h2>
-                Klo 13: startti
-                Klo 15: Välipala ja leikkiaika
-                Klo 18: Pilkku
-            </h2>
-            <h1 style = {{marginTop: '10vw'}}>öö emt joku Athenes common principles</h1>
-            <h2>
-                At the event we aim to create a safer space for everyone and don't tolerate any kind of harassment or discrimination. If you experience or notice this kind of behaviour, please contact the staff immediately.
-                Our harassment contact persons Matti and Maija will be present at the party and can also be reached via tg: @MattiMeikalainen and @MaijaMeikalainen
-            </h2>
-            <h1 style = {{marginTop: '10vw'}}>SPONSORS</h1>
-            <h2>
-                öö joo sponsoreita tänne visio?
-            </h2>
-            <h2>
-                sit kans jonneki näitä
-            </h2>
+        <CurtainEffect blurCurtains = {!isMobile}/>
+        <VideoPlayer id = 'video'
+            //lisää process.env.PUBLIC_URL pathii jos haet jotai staticMedia folderista
+            url = {process.env.PUBLIC_URL + "/staticMedia/club-x_promo.MOV" }
+            isMobile = {isMobile}
+        />
+        <LightsEffect isMobile={isMobile}/>
+        <div className = 'infoText' style = {{top: isMobile ? '300px' : '170vw' /*alkaa vähän epäilyttää näin monet mobiilicheckit hmm aijai*/}}>
+        </div>
+        <div className = 'footer'>
+            {/*tää vielä aika hajalla joo
+            <div className = 'footerButtons' style={{ marginTop: '50px', paddingBottom: '20px' }}>
+                <img src = {TelegramLogo}/>
+                <img src = {InstagramLogo}/>
+                <img src = {KideAppLogo}/>
+            </div>
+            */}
         </div>
     </div>
   );
@@ -80,3 +74,12 @@ function App() {
 export default App;
 
 //mm nn gojira...
+
+/*
+
+₍^. .^₎⟆     ᓚᘏᗢ
+ U  U
+
+ */
+
+ //TODO löydätkö muista tiedostoista kaikki kuusi "ᓚᘏᗢ" -kissaa?

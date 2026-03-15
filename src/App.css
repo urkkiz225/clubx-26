@@ -63,7 +63,6 @@ h1 {
   margin-left: 0;
   margin-right: 0;
   font-weight: bold;
-  font-size:48px;
 }
 
 h2 {
@@ -74,7 +73,6 @@ h2 {
   margin-left: 0;
   margin-right: 0;
   font-weight: bold;
-  font-size:'48px';
 }
 
 .aspectRatio {
@@ -137,12 +135,53 @@ h2 {
   mut se on nii hienoooo ja spotify vie kuitenki 5x enemmän cpu tehoo hhahhhaaaahh ehöhöööö*/
 }
 
+.headerDesktop {
+  position: absolute;
+  top:1.5vw;
+  left:1vw;
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  justify-items:flex-start;
+  text-align: center;
+  align-items: center;
+  padding: 0 35px;
+  box-sizing:border-box;
+  width:100%;
+  height:100px;
+}
+
 .headerImage {
   position: absolute;
   width:min(100svw, 100svw);
   display:flex;
   justify-content: center;
 }
+
+.headerButtons{
+  display:flex;
+  width: auto;
+  flex-direction: row;
+  z-index: 1;
+  gap:3.5vw;
+}
+
+.headerButtons img:hover{
+  transform:scale(1.1);
+  filter: drop-shadow(3px 4px 5px rgba(150, 6, 20, 0.5)) drop-shadow(rgb(210, 6, 27) 0 0 2vw) drop-shadow(rgb(210, 6, 27) 0 0 4vw);
+}
+
+.headerButtons img {
+  width: 3vw;
+  height: 3vw;
+  transform:scale(1.0);
+  filter: drop-shadow(3px 4px 5px rgba(150, 6, 20, 0.5)) drop-shadow(rgb(158, 27, 10) 1vw 1vw 5vw) drop-shadow(rgb(73, 1, 8) 1vw 1vw 7vw);
+  transition: filter 0.3s ease, transform 0.3s ease;
+  padding:30px;
+  min-width: 40px;
+  min-height: 40px;
+}
+
 
 .curtainsWrapper{
   position: sticky;
@@ -152,6 +191,7 @@ h2 {
   overflow:hidden;
   z-index: 2;
   filter:opacity(0.997);
+  pointer-events: none;
 }
 
 .curtain{
@@ -172,6 +212,111 @@ h2 {
   background-color:rgb(0, 0, 0, 0.25);
   pointer-events: none;
   z-index: 3;
+}
+
+
+.lightsWrapper {
+  position: absolute; 
+  top: 0; 
+  left: 0;
+  height: 100%; 
+  width: 100%;
+  overflow: hidden;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.lightBeamLeft {
+  position: absolute;
+  bottom:41%;
+  transform-origin: 100% 50%;
+  width:70vw;
+  height:auto;
+  animation: leftLightShit 3s ease-in-out infinite;
+}
+
+/*värianimaatio värin shi(f)t funktio ᓚᘏᗢ*/
+@keyframes leftLightShit{
+  0%, 100% 
+  {
+    filter: opacity(0.39) drop-shadow(3px 4px 10px rgb(128, 0, 0));
+  }
+  50% {
+    filter: opacity(0.52) drop-shadow(3px 4px 10px rgba(43, 42, 42, 0.562));
+  }
+}
+
+.lightBeamRight{
+  position: absolute;
+  bottom: 40%;
+  right: -17%;
+  transform-origin: 100% 50%;
+  width:70vw;
+  height:auto;
+  animation: rightLightShit 3s ease-in-out infinite;
+}
+
+@keyframes rightLightShit{
+  0%, 100%
+  {
+    filter: opacity(0.52) drop-shadow(3px 4px 10px rgba(43, 42, 42, 0.562));
+  }
+  50% {
+    filter: opacity(0.39) drop-shadow(3px 4px 10px rgb(168, 3, 3));
+  }
+}
+
+.spotLightLogo{
+  position:absolute;
+  right:50%;
+  height:auto;
+  filter: drop-shadow(3px 4px 10px rgb(142, 8, 8));
+  transform: translateX(50%)
+}
+
+.footer{
+  height:600vh;
+  position: absolute;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-items:center;
+  text-align: center;
+  align-items: center;
+  box-sizing:border-box;
+  width:100%;
+  overflow:hidden;
+}
+
+.footerWrapper{
+  width:100%;
+}
+
+.footerButtons{
+  position:absolute;
+  bottom:-472vw;
+  display:flex;
+  width: 100%;
+  height:100%;
+  flex-direction: row;
+  z-index: 1;
+  gap:10vw;
+}
+
+.footerButtons img:hover{
+  transform:scale(1.1);
+  filter: drop-shadow(3px 4px 5px rgba(150, 6, 20, 0.5)) drop-shadow(rgb(210, 6, 27) 0 0 2vw) drop-shadow(rgb(210, 6, 27) 0 0 4vw);
+}
+
+.footerButtons img {
+  width: 5vw;
+  height: 5vw;
+  transform:scale(1.0);
+  filter: drop-shadow(3px 4px 5px rgba(150, 6, 20, 0.5)) drop-shadow(rgb(158, 27, 10) 1vw 1vw 5vw) drop-shadow(rgb(73, 1, 8) 1vw 1vw 7vw);
+  transition: filter 0.3s ease, transform 0.3s ease;
+  padding:30px;
+  min-width: 40px;
+  min-height: 40px;
 }
 
 .infoText{
