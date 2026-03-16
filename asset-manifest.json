@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.44a8df5f.css",
-    "main.js": "/static/js/main.a0d371c9.js",
+    "main.css": "/static/css/main.6dd43272.css",
+    "main.js": "/static/js/main.e8bf92c9.js",
     "static/js/453.c6d0031e.chunk.js": "/static/js/453.c6d0031e.chunk.js",
     "static/media/spotlight_texturedbeam.png": "/static/media/spotlight_texturedbeam.81996a6d482a0579e69b.png",
     "static/media/curtains_wavy_right2_edited_unblurred.png": "/static/media/curtains_wavy_right2_edited_unblurred.ce9f9b8bbc3ac1decf99.png",
@@ -13,12 +13,12 @@
     "static/media/instagram.svg": "/static/media/instagram.9719488534f8c429d200362e22bec340.svg",
     "static/media/kide_app.svg": "/static/media/kide_app.c07f14dd7588133214e51b4e73372d8a.svg",
     "static/media/telegram.svg": "/static/media/telegram.2c8b5697360959523bad4af9177ea58f.svg",
-    "main.44a8df5f.css.map": "/static/css/main.44a8df5f.css.map",
-    "main.a0d371c9.js.map": "/static/js/main.a0d371c9.js.map",
+    "main.6dd43272.css.map": "/static/css/main.6dd43272.css.map",
+    "main.e8bf92c9.js.map": "/static/js/main.e8bf92c9.js.map",
     "453.c6d0031e.chunk.js.map": "/static/js/453.c6d0031e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.44a8df5f.css",
-    "static/js/main.a0d371c9.js"
+    "static/css/main.6dd43272.css",
+    "static/js/main.e8bf92c9.js"
   ]
 }
