@@ -45,7 +45,7 @@ const VideoPlayer = ({url, isMobile}) => {
         {
           top:'-350px',
           marginTop:'650px',
-          transform: portrait ? 'scale(0.75)' : 'scale(1.25)',
+          transform: portrait ? 'scale(0.75)' : 'scale(1.2)',
            maxWidth:portrait?'500px':'1000px'
            }:{}}>
           <div className="ambilightWrapper">

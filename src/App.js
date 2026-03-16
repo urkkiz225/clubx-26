@@ -57,16 +57,22 @@ function App() {
             isMobile = {isMobile}
         />
         <LightsEffect isMobile={isMobile}/>
-        <div className = 'infoText' style = {{top: isMobile ? '300px' : '170vw' /*alkaa vähän epäilyttää näin monet mobiilicheckit hmm aijai*/}}>
-        </div>
-        <div className = 'footer'>
-            {/*tää vielä aika hajalla joo
-            <div className = 'footerButtons' style={{ marginTop: '50px', paddingBottom: '20px' }}>
-                <img src = {TelegramLogo}/>
-                <img src = {InstagramLogo}/>
-                <img src = {KideAppLogo}/>
+        <div className = 'infoText' style={{ height: 'max(300svw, 300svh)', position: 'absolute', width: '100%', top:isMobile?'500px':'200px'}}>
+            <h1>CLUB X 2026</h1>
+            <h2>
+                flexbox -esimerkki
+            </h2>
+            <h1 style = {{marginTop: '10vw'}}>ARTISTIT JA ESIINTYJÄT</h1>
+            <h2>
+                They call me the UX designer kylteri the way i make and stack my lorem ipsum dolors 😈
+            </h2>
+            <div className = 'footer'>
+                <div className = 'footerButtons' style={{ marginTop: '50px', paddingBottom: '20px' }}>
+                    <img src = {TelegramLogo} alt = 'telegram logo'/>
+                    <img src = {InstagramLogo} alt = 'instagram logo'/>
+                    <img src = {KideAppLogo} alt = 'kide.app logo'/>
+                </div>
             </div>
-            */}
         </div>
     </div>
   );

@@ -15,7 +15,7 @@ const LightsEffect = ({isMobile}) => {
   //i STILL HATE userefs!!!1!!!!
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
-    target:containerRef.current, offset:portrait?["20% start","35% start"]:["15% start","30% start"]
+    target:containerRef.current, offset:portrait?["10% start","25% start"]:["15% start","30% start"]
   });
   const smoothProgress = useSpring(scrollYProgress, {stiffness: 250, damping: 40,
   restDelta: 0.001
@@ -27,10 +27,10 @@ const LightsEffect = ({isMobile}) => {
     <div ref={containerRef} style={{ height: 'max(300svw, 300svh)', position: 'absolute', width: '100%', top:'0vw'}}>
       <div className='lightsWrapper' style = {{top:'10vw'}}>
         <motion.img 
-            className = 'lightBeamRight' src={spotLightBeam} style={{rotate:rightLightBeamRot, scale:isMobile?('4'):('2'), scaleY:('0.8'), opacity:beamOpacity}} alt = 'light beam right'
+          className = 'lightBeamRight' src={spotLightBeam} style={{rotate:rightLightBeamRot, scale:isMobile?('4'):('2'), scaleY:('0.8'), opacity:beamOpacity}} alt = 'light beam right'
         />
         <motion.img 
-            className = 'lightBeamLeft' src={spotLightBeam} style={{rotate:leftLightBeamRot, scale:isMobile?('4'):('2'), scaleY:('0.8'), opacity:beamOpacity, left:isMobile?'-99%':'-91%'}} alt = 'light beam left'
+          className = 'lightBeamLeft' src={spotLightBeam} style={{rotate:leftLightBeamRot, scale:isMobile?('4'):('2'), scaleY:('0.8'), opacity:beamOpacity, left:isMobile?'-99%':'-91%'}} alt = 'light beam left'
         />
         <motion.img
           className = 'spotLightLogo' src = {clubXLogo} style = {{width:isMobile?'55vw':'20vw', bottom:isMobile?'58%':'68.5%', minWidth:isMobile?'200px':'400px'}}
@@ -41,6 +41,5 @@ const LightsEffect = ({isMobile}) => {
 };
 
 export default LightsEffect;
-
 
 //ᓚᘏᗢ

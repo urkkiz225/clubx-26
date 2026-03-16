@@ -1,11 +1,8 @@
 body {
   background-color: rgb(0, 0, 0);
-  margin: 0;
-  padding:0;
   overflow-x:hidden;
-  overflow-y:visible;
-  min-height: 500vh;
-  max-height: 500vh;
+  overflow-y:hidden;
+  height:max(500svw, 500svh); /*todo korjaa sivuston korkeus*/
   background-image: radial-gradient(transparent, black), radial-gradient(transparent, rgba(0,0,0,0.4)), linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.9)), url("./Assets/cinemascreen_replaced_screenblack.jpg");
   background-color: #000000;
   background-size: auto 66%;
@@ -20,8 +17,6 @@ html{
   overflow-x:clip;
   overflow-y:visible;
   /*varmistus että kans toimii vanhemmilla malleilla*/
-  min-height: 300vh;
-  max-height: 300vh;
 }
 
 .videoPlayer{
@@ -31,6 +26,7 @@ html{
   animation: shiftBorderColor 16s linear infinite; /*tää lopetti toimimisen????*/
   border-style:groove;
   border-width: 4px;
+  display: flex;
 }
 
 @keyframes shiftBorderColor {
@@ -47,7 +43,7 @@ html{
 
 .App {
   width: 100%;
-  height: 100vh;
+  height: 200vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -88,7 +84,8 @@ h2 {
   justify-content: center;
   position: relative;
   width: max(40svw, 450px);
-  min-width: 200px;
+  min-width: 100px;
+  transform-origin: 50% 0%;
 }
 
 .ambilightWrapper {
@@ -270,13 +267,18 @@ h2 {
   position:absolute;
   right:50%;
   height:auto;
+  width:auto;
+  display: flex;
   filter: drop-shadow(3px 4px 10px rgb(142, 8, 8));
-  transform: translateX(50%)
+  transform: translateX(50%);
+  padding:15vw;
 }
 
 .footer{
-  height:600vh;
-  position: absolute;
+  margin-top: 10vh;
+  margin-bottom:5vh;
+  padding: 7.5vh;
+  position: relative;
   display:flex;
   flex-direction: row;
   justify-content: center;
@@ -284,20 +286,13 @@ h2 {
   text-align: center;
   align-items: center;
   box-sizing:border-box;
-  width:100%;
+  width:100vw;
+  height:50vh;
   overflow:hidden;
 }
 
-.footerWrapper{
-  width:100%;
-}
-
 .footerButtons{
-  position:absolute;
-  bottom:-472vw;
   display:flex;
-  width: 100%;
-  height:100%;
   flex-direction: row;
   z-index: 1;
   gap:10vw;
@@ -309,8 +304,8 @@ h2 {
 }
 
 .footerButtons img {
-  width: 5vw;
-  height: 5vw;
+  width: 3vw;
+  height: 3vw;
   transform:scale(1.0);
   filter: drop-shadow(3px 4px 5px rgba(150, 6, 20, 0.5)) drop-shadow(rgb(158, 27, 10) 1vw 1vw 5vw) drop-shadow(rgb(73, 1, 8) 1vw 1vw 7vw);
   transition: filter 0.3s ease, transform 0.3s ease;
@@ -329,5 +324,7 @@ h2 {
   position:relative;
   z-index:3;
   max-width: 80%;
-  margin: 7.5vw;
+  padding-left:10vw;
+  padding-right:10vw;
+  margin: 15vw;
 }
