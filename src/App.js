@@ -5,44 +5,48 @@ import HeaderLogo from './Assets/header_underline.png'
 import TelegramLogo from './Assets/HeaderButtons/telegram.svg';
 import InstagramLogo from './Assets/HeaderButtons/instagram.svg';
 import KideAppLogo from './Assets/HeaderButtons/kide_app.svg';
-
+import JunctionWordmark from './Assets/Sponsors/junction_wordmark.svg';
+//import JunctionEmblem from './Assets/Sponsors/junction_emblem.svg';
+import Friidu from './Assets/Sponsors/friidu.svg';
+import Kaalimato from './Assets/Sponsors/kaalimato.jpg';
 import { useEffect, useState } from 'react';
 import LightsEffect from './LightsEffect.js';
 
 
 function App() {
-    //pöllitty mobile check vahnasta projektista xd
+    const openLink = (url) => {
+        window.open(url, '_blank');
+    }
     const [isMobile, setIsMobile] = useState(false);
+    const [computerIsNarrowScreenXOR, setComputerIsNarrowScreenXOR] = useState(false); //XOR jos viewport on tosi kapee mut käyttäjä ei oo mobiilil
     useEffect(()=>{
         //varotuksen sana joka sekotti pariin kertaan jos pistät inspectorista mobile viewn päälle ja sit pois nii background tulee olee fucked up
         const checkMobile = () => {
+            const computerIsNarrowScreen = window.innerWidth < 850;
             const isMobileDevice = /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-            setIsMobile(isMobileDevice);
-            if(isMobileDevice){
-                //todo consider constants 4 these
+            setIsMobile(isMobileDevice || (window.innerWidth < 850));
+            setComputerIsNarrowScreenXOR(!isMobileDevice && computerIsNarrowScreen);
+            if(isMobileDevice || (window.innerWidth < 850)){
                 document.body.style.backgroundSize = "min(350svw, 350svh)" /*pistää vaakasuunnanki mobiililla toimimaan*/
             }else{
-                /*todo jotai hienoi juttui taustakuvaan joka saa näyttää "valkokankaan" enemmän valkokankaalta*/
                 document.body.style.backgroundSize = "116svw"
             }
         };
         const handleResize = () => {
-            //kätevä debugaamiseen (varsinki jos se toimis takasin konekokoon mentäes)
             checkMobile();
         }
         window.addEventListener('resize', handleResize);
         checkMobile();
     }, []);
-    /*todo punasta hehkuu noilt reunoilt sit ku toi kuva loppuu*/ //TODO kaks mieti vielä tätä
   return (
     <div className='App'>
         {isMobile 
             ? (<header className = 'headerMobile'></header>)
             : <header className = 'headerDesktop'>
                 <div className = 'headerButtons'>
-                    <img src = {TelegramLogo} alt = 'telegram logo'/>
-                    <img src = {InstagramLogo} alt = 'instagram logo'/>
-                    <img src = {KideAppLogo} alt = 'kide.app logo'/>
+                    <img onClick={() => openLink("https://t.me/clubabsolutecinema")} src = {TelegramLogo} alt = 'telegram logo'/>
+                    <img onClick={() => openLink("https://www.instagram.com/atheneclubx/")} src = {InstagramLogo} alt = 'instagram logo'/>
+                    <img onClick={() => openLink("https://www.google.com/search?q=how+to+troll+your+website+users")} src = {KideAppLogo} alt = 'kide.app logo'/>
                 </div>
             </header>
         }
@@ -55,9 +59,11 @@ function App() {
             //lisää process.env.PUBLIC_URL pathii jos haet jotai staticMedia folderista
             url = {process.env.PUBLIC_URL + "/staticMedia/club-x_promo.MOV" }
             isMobile = {isMobile}
+            computerIsNarrowScreenXOR={computerIsNarrowScreenXOR}
         />
-        <LightsEffect isMobile={isMobile}/>
-        <div className = 'infoText' style={{ height: 'max(300svw, 300svh)', position: 'absolute', width: '100%', top:isMobile?'500px':'200px'}}>
+        <LightsEffect isMobile={isMobile} computerIsNarrowScreenXOR = {computerIsNarrowScreenXOR}/>
+        {/*seuraavan divin sisälle kaikki joka tulee logon / valonheittimien jälkeen*/}
+        <div className = 'clubXInfo' style={{position: 'absolute', width: '100%', top:isMobile ? !computerIsNarrowScreenXOR ? '1500px' : '2000px':'140vw'}}>
             <h1>CLUB X 2026</h1>
             <h2>
                 flexbox -esimerkki
@@ -68,18 +74,22 @@ function App() {
             </h2>
             <div className = 'footer'>
                 <div className = 'footerButtons' style={{ marginTop: '50px', paddingBottom: '20px' }}>
-                    <img src = {TelegramLogo} alt = 'telegram logo'/>
-                    <img src = {InstagramLogo} alt = 'instagram logo'/>
-                    <img src = {KideAppLogo} alt = 'kide.app logo'/>
+                    <img onClick={() => openLink("https://t.me/clubabsolutecinema")} src = {TelegramLogo} alt = 'telegram logo'/>
+                    <img onClick={() => openLink("https://www.instagram.com/atheneclubx/")} src = {InstagramLogo} alt = 'instagram logo'/>
+                    <img onClick={() => openLink("https://www.google.com/search?q=how+to+troll+your+website+users")} src = {KideAppLogo} alt = 'kide.app logo'/>
                 </div>
+            </div>
+            <h1>CLUB ÄXÄÄ TUKEMASSA</h1>
+            <div className = 'sponsors' style ={{overflowX:'hidden'}}>
+                <img src = {JunctionWordmark} alt = 'Junction wordmark sponsor'/>
+                <img style = {{scale:(0.5), transform:'translateY(-50%)'}} src = {Friidu} alt = 'Friidu logo sponsor'/>
+                <img style = {{maxWidth:'22.5vw', scale:(1.25)}} src = {Kaalimato} alt = 'Kaalimato logo sponsor'/>
             </div>
         </div>
     </div>
   );
 }
 export default App;
-
-//mm nn gojira...
 
 /*
 

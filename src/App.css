@@ -2,7 +2,6 @@ body {
   background-color: rgb(0, 0, 0);
   overflow-x:hidden;
   overflow-y:hidden;
-  height:max(500svw, 500svh); /*todo korjaa sivuston korkeus*/
   background-image: radial-gradient(transparent, black), radial-gradient(transparent, rgba(0,0,0,0.4)), linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.9)), url("./Assets/cinemascreen_replaced_screenblack.jpg");
   background-color: #000000;
   background-size: auto 66%;
@@ -14,16 +13,38 @@ body {
 html{
   margin: 0;
   padding:0;
-  overflow-x:clip;
+  overflow-x:hidden;
   overflow-y:visible;
-  /*varmistus että kans toimii vanhemmilla malleilla*/
+}
+
+.App {
+  width: 100%;
+  height: max(300vw, 300vh);
+  min-height:150vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+    overflow-x:hidden;
+  overflow-y:hidden;
+  image-rendering:smooth; /*pro hacker tip 2014 kuinka piilotella matalaresoluutisii kuvia*/
+}
+
+h1 { 
+  display: block;
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
 }
 
 .videoPlayer{
   box-shadow: 10px 10px 10px #1d0101;
   background-color:rgb(14,0,0);
   box-shadow: 0 0 10px #747474, 0 0 20px #1b0303, 0 0 300px #1b0303;
-  animation: shiftBorderColor 16s linear infinite; /*tää lopetti toimimisen????*/
+  animation: shiftBorderColor 16s linear infinite;
   border-style:groove;
   border-width: 4px;
   display: flex;
@@ -36,29 +57,9 @@ html{
   to {
     border-color: #0c0000;
   }
-  to { /*joskus toimi ilman tätä kolmatta keyframee ja sit kaikki hajos xd*/
+  to {
     border-color: #141414;
   }
-}
-
-.App {
-  width: 100%;
-  height: 200vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  image-rendering:smooth; /*pro hacker tip 2014 kuinka piilotella matalaresoluutisii kuvia*/
-}
-
-h1 { 
-  display: block;
-  font-size: 2em;
-  margin-top: 0.67em;
-  margin-bottom: 0.67em;
-  margin-left: 0;
-  margin-right: 0;
-  font-weight: bold;
 }
 
 h2 {
@@ -96,7 +97,6 @@ h2 {
 
 .positionWrapper {
   position:sticky;
-  /*pässää offset value tänne ? */
   top:30vw;
   z-index:1;
 }
@@ -179,10 +179,12 @@ h2 {
   min-height: 40px;
 }
 
+/*pistää alt tekstit valkoseks*/
+img {color:#fff}
 
 .curtainsWrapper{
   position: sticky;
-  top: 0px; 
+  top: 0px;
   height: 100vh; 
   width:100%;
   overflow:hidden;
@@ -194,7 +196,7 @@ h2 {
 .curtain{
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit:fill;
   position: absolute;
   left: 0;
 }
@@ -236,7 +238,7 @@ h2 {
 @keyframes leftLightShit{
   0%, 100% 
   {
-    filter: opacity(0.39) drop-shadow(3px 4px 10px rgb(128, 0, 0));
+    filter: opacity(0.39) drop-shadow(3px 4px 10px rgb(128, 0, 0)); /* siist efekti blur(6px) contrast(50) grayscale(100%)*/
   }
   50% {
     filter: opacity(0.52) drop-shadow(3px 4px 10px rgba(43, 42, 42, 0.562));
@@ -274,10 +276,26 @@ h2 {
   padding:15vw;
 }
 
+.clubXInfo{
+  color:white; 
+  display:flex;
+  flex-direction:column;
+  justify-content: flex-start;
+  align-items:center;
+  text-align: center; 
+  position:relative;
+  z-index:3;
+  max-width: 80%;
+  padding-left:10vw;
+  padding-right:10vw;
+  margin: 15vw;
+  overflow-x:hidden;
+}
+
 .footer{
-  margin-top: 10vh;
-  margin-bottom:5vh;
-  padding: 7.5vh;
+  margin-top: -5vh;
+  margin-bottom:-5vh;
+  padding: 15vh;
   position: relative;
   display:flex;
   flex-direction: row;
@@ -286,16 +304,16 @@ h2 {
   text-align: center;
   align-items: center;
   box-sizing:border-box;
-  width:100vw;
-  height:50vh;
+  width:auto;
+  height:auto;
   overflow:hidden;
 }
 
 .footerButtons{
-  display:flex;
+  display: flex;
   flex-direction: row;
-  z-index: 1;
-  gap:10vw;
+  z-index: 4;
+  gap: 10vw;
 }
 
 .footerButtons img:hover{
@@ -310,21 +328,76 @@ h2 {
   filter: drop-shadow(3px 4px 5px rgba(150, 6, 20, 0.5)) drop-shadow(rgb(158, 27, 10) 1vw 1vw 5vw) drop-shadow(rgb(73, 1, 8) 1vw 1vw 7vw);
   transition: filter 0.3s ease, transform 0.3s ease;
   padding:30px;
-  min-width: 40px;
-  min-height: 40px;
+  min-width: min(80px, 10vw);
+  min-height: 80px;
 }
 
-.infoText{
-  color:white; 
+.sponsors{
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  position: relative;
   display:flex;
-  flex-direction:column;
-  justify-content: center;
-  align-items:center;
-  text-align: center; 
-  position:relative;
-  z-index:3;
-  max-width: 80%;
-  padding-left:10vw;
-  padding-right:10vw;
-  margin: 15vw;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-items:center;
+  text-align: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+  padding:5vw;
+  overflow:hidden;
+  padding-bottom:15vw;
+}
+
+.sponsors img{
+  width:auto;
+  object-fit:contain;
+  margin:2vw;
+  width:100%;
+  height:auto;
+  min-width: 200px;
+  min-height: auto;
+  filter: drop-shadow(3px 4px 5px rgba(150, 6, 20, 0.5)) drop-shadow(rgb(61, 4, 10) 0 0 0.75vw) drop-shadow(rgb(56, 5, 10)0 0 1.5vw);
+  overflow:hidden;
+}
+
+@font-face {
+font-family: 'Asul';
+  src: url('./Fonts/Asul-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DancingScript';
+  src: url('./Fonts/DancingScript-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*club x logo pääfontti ᓚᘏᗢ*/
+@font-face {
+  font-family: 'Limelight';
+  src: url('./Fonts/Limelight-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./Fonts/Montserrat-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Notable';
+  src: url('./Fonts/Notable-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }

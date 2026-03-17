@@ -5,7 +5,7 @@ const FRAMERATE = 30;
 
 
 //shout out react-ambilight package @ https://github.com/brunos3d/video-ambilight !!!! :33 ᓚᘏᗢ
-const VideoPlayer = ({url, isMobile}) => {
+const VideoPlayer = ({url, isMobile, computerIsNarrowScreenXOR}) => {
   var portrait = !(window.screen.orientation.type === 'landscape-primary' 
     || window.screen.orientation.type === 'landscape-secondary');
   window.screen.orientation.addEventListener('change', () => {
@@ -43,9 +43,10 @@ const VideoPlayer = ({url, isMobile}) => {
       <div className="videoWrapper" id = 'videoPlayer' style = {
         isMobile ?
         {
-          top:'-350px',
-          marginTop:'650px',
-          transform: portrait ? 'scale(0.75)' : 'scale(1.2)',
+          //todo fixaa liian pieni videokoko ipadeilla (portrait)
+          top: !computerIsNarrowScreenXOR ? '-350px' : '0px',
+          marginTop:portrait ? '600px':'400px',
+          transform: portrait ? 'scale(0.75)' : !computerIsNarrowScreenXOR? 'scale(1.2)':'scale:(0.8)',
            maxWidth:portrait?'500px':'1000px'
            }:{}}>
           <div className="ambilightWrapper">
