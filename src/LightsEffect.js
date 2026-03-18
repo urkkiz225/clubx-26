@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 //shout out framer-motion pkg greatest animation package of all time
 import { motion, useScroll, useTransform, useSpring} from 'framer-motion';
 //perkele ku mistää ei löydy commercial use stock kuvii spotlight beameist nii tääki piti tehä ite perkele vittu! ᓚᘏᗢ
-import spotLightBeam from './Assets/spotlight_texturedbeam.png';
+import spotLightBeam from './Assets/spotlight_texturedbeam_midres.png';
 import clubXLogo from './Assets/header.png';
 
 const LightsEffect = ({isMobile, computerIsNarrowScreenXOR}) => {

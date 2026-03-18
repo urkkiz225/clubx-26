@@ -1,8 +1,8 @@
 import { useRef } from 'react';
 //shoutout framer-motion pkg greatest animation package of all time
 import { motion, useScroll, useTransform, useSpring, useMotionTemplate } from 'framer-motion';
-import CurtainLeft from './Assets/curtains_wavy_left2_edited_unblurred.png';
-import CurtainRight from './Assets/curtains_wavy_right2_edited_unblurred.png';
+import CurtainLeft from './Assets/curtains_wavy_left2_edited_unblurred_midres.png';
+import CurtainRight from './Assets/curtains_wavy_right2_edited_unblurred_midres.png';
 
 const CurtainEffect = ({blurCurtains = true, top = '0'}) => {
   var portrait = window.screen.orientation.type === 'landscape-primary' 

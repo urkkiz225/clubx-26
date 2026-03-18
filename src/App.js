@@ -7,16 +7,27 @@ import InstagramLogo from './Assets/HeaderButtons/instagram.svg';
 import KideAppLogo from './Assets/HeaderButtons/kide_app.svg';
 import JunctionWordmark from './Assets/Sponsors/junction_wordmark.svg';
 //import JunctionEmblem from './Assets/Sponsors/junction_emblem.svg';
-import Friidu from './Assets/Sponsors/friidu.svg';
-import Kaalimato from './Assets/Sponsors/kaalimato.jpg';
+import Friidu from './Assets/Sponsors/Friidu_Logo_Pink.svg';
+import Kaalimato from './Assets/Sponsors/kaalimato_nobg.png';
 import { useEffect, useState } from 'react';
 import LightsEffect from './LightsEffect.js';
+/*jshint -W106 */
+import i18n from './i18n.js';
+/*jshint +W106 */
+import { useTranslation } from 'react-i18next';
 
 
 function App() {
-    const openLink = (url) => {
-        window.open(url, '_blank');
+    const {t, i18n} = useTranslation();
+    const [activeButton, setActiveButton] = useState(() => {
+        return localStorage.getItem('websiteLang') || 'fi';
+    });
+    const changeLanguage = (lang, buttonPressed) =>{
+        i18n.changeLanguage(lang)
+        setActiveButton(buttonPressed);
     }
+    const openLink = (url) => {
+        window.open(url, '_blank');    }
     const [isMobile, setIsMobile] = useState(false);
     const [computerIsNarrowScreenXOR, setComputerIsNarrowScreenXOR] = useState(false); //XOR jos viewport on tosi kapee mut käyttäjä ei oo mobiilil
     useEffect(()=>{
@@ -38,18 +49,30 @@ function App() {
         window.addEventListener('resize', handleResize);
         checkMobile();
     }, []);
+    useEffect(()=>{
+        localStorage.setItem('websiteLang', activeButton);
+        i18n.changeLanguage(activeButton);
+    }, [activeButton]);
   return (
     <div className='App'>
         {isMobile 
             ? (<header className = 'headerMobile'></header>)
-            : <header className = 'headerDesktop'>
-                <div className = 'headerButtons'>
-                    <img onClick={() => openLink("https://t.me/clubabsolutecinema")} src = {TelegramLogo} alt = 'telegram logo'/>
-                    <img onClick={() => openLink("https://www.instagram.com/atheneclubx/")} src = {InstagramLogo} alt = 'instagram logo'/>
-                    <img onClick={() => openLink("https://www.google.com/search?q=how+to+troll+your+website+users")} src = {KideAppLogo} alt = 'kide.app logo'/>
+            :
+            <header className='headerDesktopLeft'>
+                  <div className='headerButtons'>
+                      <img onClick={() => openLink("https://t.me/clubabsolutecinema")} src={TelegramLogo} alt='telegram logo' />
+                      <img onClick={() => openLink("https://www.instagram.com/atheneclubx/")} src={InstagramLogo} alt='instagram logo' />
+                      <img onClick={() => openLink("https://www.google.com/search?q=how+to+troll+your+website+users")} src={KideAppLogo} alt='kide.app logo' />
                 </div>
             </header>
         }
+        <header className = 'headerDesktopRight' style = {{opacity:isMobile?(0.75):(1)}}>
+            <div className = 'headerButtons'>
+                {/*todo constantit button keylle*/}
+                <button className = {activeButton.toLowerCase() === 'fi' ? 'activeHeaderButton':''} onClick={(e) => changeLanguage('fi', 'fi')} alt = 'finnish language toggle'>FI</button>
+                <button className = {activeButton.toLowerCase() === 'en' ? 'activeHeaderButton':''} onClick={(e) => changeLanguage('en', 'en')} alt = 'english language toggle'>EN</button>
+            </div>
+        </header>
         <header className = "headerImage" style={{marginTop:'100px', top: isMobile ? "min(30svw:-300px)":"-2rem",
             maxWidth: isMobile ? "100svh" : "40vw"}}>
             <img src={HeaderLogo} alt="header mobiili" style={{width: "100%", height: "auto", display: "block"}}/>
@@ -66,11 +89,11 @@ function App() {
         <div className = 'clubXInfo' style={{position: 'absolute', width: '100%', top:isMobile ? !computerIsNarrowScreenXOR ? '1500px' : '2000px':'140vw'}}>
             <h1>CLUB X 2026</h1>
             <h2>
-                flexbox -esimerkki
+                {t('welcome')}
             </h2>
-            <h1 style = {{marginTop: '10vw'}}>ARTISTIT JA ESIINTYJÄT</h1>
+            <h1 style = {{marginTop: '10vw'}}>{t('artistsheader')}</h1>
             <h2>
-                They call me the UX designer kylteri the way i make and stack my lorem ipsum dolors 😈
+                {t('artists')}
             </h2>
             <div className = 'footer'>
                 <div className = 'footerButtons' style={{ marginTop: '50px', paddingBottom: '20px' }}>
@@ -79,11 +102,11 @@ function App() {
                     <img onClick={() => openLink("https://www.google.com/search?q=how+to+troll+your+website+users")} src = {KideAppLogo} alt = 'kide.app logo'/>
                 </div>
             </div>
-            <h1>CLUB ÄXÄÄ TUKEMASSA</h1>
+            <h1>{t('sponsors')}</h1>
             <div className = 'sponsors' style ={{overflowX:'hidden'}}>
                 <img src = {JunctionWordmark} alt = 'Junction wordmark sponsor'/>
-                <img style = {{scale:(0.5), transform:'translateY(-50%)'}} src = {Friidu} alt = 'Friidu logo sponsor'/>
-                <img style = {{maxWidth:'22.5vw', scale:(1.25)}} src = {Kaalimato} alt = 'Kaalimato logo sponsor'/>
+                <img style = {{scale:(0.625)}} src = {Friidu} alt = 'Friidu logo sponsor'/>
+                <img style = {{scale:(1)}} src = {Kaalimato} alt = 'Kaalimato logo sponsor'/>
             </div>
         </div>
     </div>

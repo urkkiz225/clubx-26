@@ -1,6 +1,6 @@
 {
   "name": "clubx-26",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "homepage": "https://clubabsolutecinema.com",
   "private": true,
   "dependencies": {
@@ -8,13 +8,17 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^13.5.0",
+    "i18n": "^0.15.3",
+    "i18next": "^25.8.18",
     "motion": "^12.36.0",
     "react": "^19.2.4",
     "react-ambilight": "^1.1.0",
     "react-dom": "^19.2.4",
+    "react-i18next": "^16.5.8",
     "react-player": "^3.4.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "react-scripts": "^5.0.1",
+    "web-vitals": "^2.1.4",
+    "webpack-dev-server": "^5.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

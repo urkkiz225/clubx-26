@@ -12,7 +12,7 @@ const VideoPlayer = ({url, isMobile, computerIsNarrowScreenXOR}) => {
       portrait = !(window.screen.orientation.type === 'landscape-primary' 
     || window.screen.orientation.type === 'landscape-secondary');
       document.getElementById('videoPlayer').style.transform = portrait ? 'scale(0.75)': 'scale(1.25)';
-      document.getElementById('videoPlayer').style.maxWidth = portrait?'500px':'1000px'
+      document.getElementById('videoPlayer').style.maxWidth = portrait?'500px':'1000px';
   });
   useEffect(() => {
     const canvas = document.getElementById('ambilight');
@@ -53,7 +53,7 @@ const VideoPlayer = ({url, isMobile, computerIsNarrowScreenXOR}) => {
               <div className="aspectRatio">
                   <video id="video" className='videoPlayer'
                     src = {url}
-                    controls={false}
+                    controls = {false}
                     autoPlay
                     muted
                     loop = {true}

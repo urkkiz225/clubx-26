@@ -25,9 +25,9 @@ html{
   flex-direction: column;
   align-items: center;
   text-align: center;
-    overflow-x:hidden;
+  overflow-x:hidden;
   overflow-y:hidden;
-  image-rendering:smooth; /*pro hacker tip 2014 kuinka piilotella matalaresoluutisii kuvia*/
+  image-rendering:optimizeSpeed;
 }
 
 h1 { 
@@ -86,7 +86,6 @@ h2 {
   position: relative;
   width: max(40svw, 450px);
   min-width: 100px;
-  transform-origin: 50% 0%;
 }
 
 .ambilightWrapper {
@@ -132,10 +131,17 @@ h2 {
   mut se on nii hienoooo ja spotify vie kuitenki 5x enemmän cpu tehoo hhahhhaaaahh ehöhöööö*/
 }
 
-.headerDesktop {
+.headerImage {
   position: absolute;
-  top:1.5vw;
-  left:1vw;
+  width:min(100svw, 100svw);
+  display:flex;
+  justify-content: center;
+}
+
+.headerDesktopLeft {
+  position: absolute;
+  top:2vw;
+  left:1.25vw;
   display:flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -144,23 +150,66 @@ h2 {
   align-items: center;
   padding: 0 35px;
   box-sizing:border-box;
-  width:100%;
+  width:50%;
   height:100px;
+  z-index: 3;
 }
 
-.headerImage {
+.headerDesktopRight {
   position: absolute;
-  width:min(100svw, 100svw);
+  top:2vw;
+  right:1.25vw;
   display:flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: flex-end;
+  justify-items:flex-end;
+  text-align: center;
+  align-items: center;
+  padding: 0 35px;
+  box-sizing:border-box;
+  width:50%;
+  height:100px;
+  z-index: 3;
 }
+
 
 .headerButtons{
   display:flex;
   width: auto;
   flex-direction: row;
   z-index: 1;
-  gap:3.5vw;
+  gap:1.5vw;
+  text-align: center;
+}
+
+.headerButtons button{
+  width: 3vw;
+  height: 3vw;
+  padding:20px;
+  min-width: 45px;
+  min-height: 45px;
+  background-color:#000000;
+  border:#141414;
+  border-style:outset;
+  border-width: 5px;
+  color:rgb(204, 204, 204);
+  box-shadow: 0px 0px 10px 5px #480000;
+  display:inline-block;
+  text-align: center;
+  line-height: 0%;
+  border-radius: 42.5%;
+}
+
+.headerButtons button.activeHeaderButton{
+  background-color:#140000;
+  filter:drop-shadow(3px 4px 3px rgb(255, 255, 255));
+  box-shadow: 0px 0px 12px 5px #360505;
+  box-shadow: 0px 0px 0px 1.5px #c16969;
+  color:#ffffff;
+}
+
+.headerButtons button:hover{
+  border-style: inset;
 }
 
 .headerButtons img:hover{
@@ -180,7 +229,7 @@ h2 {
 }
 
 /*pistää alt tekstit valkoseks*/
-img {color:#fff}
+img {color:white}
 
 .curtainsWrapper{
   position: sticky;
@@ -188,7 +237,7 @@ img {color:#fff}
   height: 100vh; 
   width:100%;
   overflow:hidden;
-  z-index: 2;
+  z-index: 4;
   filter:opacity(0.997);
   pointer-events: none;
 }
@@ -221,7 +270,7 @@ img {color:#fff}
   height: 100%; 
   width: 100%;
   overflow: hidden;
-  z-index: 2;
+  z-index: 5;
   pointer-events: none;
 }
 
@@ -352,13 +401,15 @@ img {color:#fff}
 .sponsors img{
   width:auto;
   object-fit:contain;
-  margin:2vw;
   width:100%;
   height:auto;
-  min-width: 200px;
+  margin:-2vw;
+  min-width: 500px;
   min-height: auto;
   filter: drop-shadow(3px 4px 5px rgba(150, 6, 20, 0.5)) drop-shadow(rgb(61, 4, 10) 0 0 0.75vw) drop-shadow(rgb(56, 5, 10)0 0 1.5vw);
   overflow:hidden;
+  image-rendering:optimizeQuality;
+  transform:scale(0.75);
 }
 
 @font-face {
