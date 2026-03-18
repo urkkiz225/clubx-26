@@ -11,9 +11,8 @@ import Friidu from './Assets/Sponsors/Friidu_Logo_Pink.svg';
 import Kaalimato from './Assets/Sponsors/kaalimato_nobg.png';
 import { useEffect, useState } from 'react';
 import LightsEffect from './LightsEffect.js';
-/*jshint -W106 */
+import GlobeIcon from './Assets/earth-globe-icon.svg';
 import i18n from './i18n.js';
-/*jshint +W106 */
 import { useTranslation } from 'react-i18next';
 
 
@@ -52,27 +51,37 @@ function App() {
     useEffect(()=>{
         localStorage.setItem('websiteLang', activeButton);
         i18n.changeLanguage(activeButton);
-    }, [activeButton]);
+    }, [activeButton, i18n]);
   return (
     <div className='App'>
         {isMobile 
-            ? (<header className = 'headerMobile'></header>)
-            :
-            <header className='headerDesktopLeft'>
-                  <div className='headerButtons'>
-                      <img onClick={() => openLink("https://t.me/clubabsolutecinema")} src={TelegramLogo} alt='telegram logo' />
-                      <img onClick={() => openLink("https://www.instagram.com/atheneclubx/")} src={InstagramLogo} alt='instagram logo' />
-                      <img onClick={() => openLink("https://www.google.com/search?q=how+to+troll+your+website+users")} src={KideAppLogo} alt='kide.app logo' />
+            ? 
+            <>
+            <header className = 'headerMobile'/>
+            <header className = 'headerDesktopRight'>
+                <div className = 'headerButtons'>
+                    <img style = {{scale:(1.25), right: '-200px'}} src = {GlobeIcon} alt = 'Language selection globe button'></img>
                 </div>
             </header>
+            </>
+            :
+            <>
+            <header className='headerDesktopLeft'>
+                  <div className='headerButtons'>
+                      <img style = {{padding:'30px'}} onClick={() => openLink("https://t.me/clubabsolutecinema")} src={TelegramLogo} alt='telegram logo' />
+                      <img style = {{padding:'30px'}} onClick={() => openLink("https://www.instagram.com/atheneclubx/")} src={InstagramLogo} alt='instagram logo' />
+                      <img style = {{padding:'30px'}} onClick={() => openLink("https://www.google.com/search?q=how+to+troll+your+website+users")} src={KideAppLogo} alt='kide.app logo' />
+                </div>
+            </header>
+            <header className = 'headerDesktopRight' style = {{opacity:isMobile?(0.75):(1)}}>
+                <div className = 'headerButtons'>
+                    {/*todo constantit button keylle*/}
+                    <button className = {activeButton.toLowerCase() === 'fi' ? 'activeHeaderButton':''} onClick={(e) => changeLanguage('fi', 'fi')} alt = 'finnish language toggle'>FI</button>
+                    <button className = {activeButton.toLowerCase() === 'en' ? 'activeHeaderButton':''} onClick={(e) => changeLanguage('en', 'en')} alt = 'english language toggle'>EN</button>
+                </div>
+            </header>
+            </>
         }
-        <header className = 'headerDesktopRight' style = {{opacity:isMobile?(0.75):(1)}}>
-            <div className = 'headerButtons'>
-                {/*todo constantit button keylle*/}
-                <button className = {activeButton.toLowerCase() === 'fi' ? 'activeHeaderButton':''} onClick={(e) => changeLanguage('fi', 'fi')} alt = 'finnish language toggle'>FI</button>
-                <button className = {activeButton.toLowerCase() === 'en' ? 'activeHeaderButton':''} onClick={(e) => changeLanguage('en', 'en')} alt = 'english language toggle'>EN</button>
-            </div>
-        </header>
         <header className = "headerImage" style={{marginTop:'100px', top: isMobile ? "min(30svw:-300px)":"-2rem",
             maxWidth: isMobile ? "100svh" : "40vw"}}>
             <img src={HeaderLogo} alt="header mobiili" style={{width: "100%", height: "auto", display: "block"}}/>

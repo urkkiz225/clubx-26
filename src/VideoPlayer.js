@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 let intervalId;
 const FRAMERATE = 30;
@@ -6,14 +6,7 @@ const FRAMERATE = 30;
 
 //shout out react-ambilight package @ https://github.com/brunos3d/video-ambilight !!!! :33 ᓚᘏᗢ
 const VideoPlayer = ({url, isMobile, computerIsNarrowScreenXOR}) => {
-  var portrait = !(window.screen.orientation.type === 'landscape-primary' 
-    || window.screen.orientation.type === 'landscape-secondary');
-  window.screen.orientation.addEventListener('change', () => {
-      portrait = !(window.screen.orientation.type === 'landscape-primary' 
-    || window.screen.orientation.type === 'landscape-secondary');
-      document.getElementById('videoPlayer').style.transform = portrait ? 'scale(0.75)': 'scale(1.25)';
-      document.getElementById('videoPlayer').style.maxWidth = portrait?'500px':'1000px';
-  });
+  const [portrait, setIsPortrait] = useState(false);
   useEffect(() => {
     const canvas = document.getElementById('ambilight');
     const context = canvas.getContext('2d');
@@ -22,10 +15,10 @@ const VideoPlayer = ({url, isMobile, computerIsNarrowScreenXOR}) => {
       context.drawImage(video,0,0,video.videoWidth,video.videoHeight);
     }
     function startAmbilightRepaint() {
-      intervalId = window.setInterval(repaintAmbilight,1000 / FRAMERATE);
+      intervalId = window.setInterval(repaintAmbilight, 1000 / FRAMERATE);
     }
     function stopAmbilightRepaint() {
-        clearInterval(intervalId);
+      clearInterval(intervalId);
     }    
     //ei näitä käytännösä tarvis ku video pyörii loopil ilman kontrollei mut nojaa 
     video.addEventListener('seeked', repaintAmbilight);
@@ -36,6 +29,19 @@ const VideoPlayer = ({url, isMobile, computerIsNarrowScreenXOR}) => {
     repaintAmbilight();
     video.currentTime=0;
   }, []);
+  useEffect(()=>{
+    const portraitHandler = () => {
+      setIsPortrait(!(window.screen.orientation.type === 'landscape-primary' 
+||    window.screen.orientation.type === 'landscape-secondary'));
+      document.getElementById('videoPlayer').style.transform = portrait ? 'scale(0.75)': 'scale(1.25)';
+      document.getElementById('videoPlayer').style.maxWidth = portrait?'500px':'1000px';
+    }
+    window.screen.orientation.addEventListener('change', portraitHandler);
+    portraitHandler();
+    return () => {
+      window.screen.orientation.removeEventListener('change', portraitHandler);
+    };
+  }, [portrait])
   //jos ambilight ei toimi testaa refreshaa
   return (
     //kyllästyin positionilla leikkimiseen näissä nii we love 10 stacked wrappers ᓚᘏᗢ
@@ -45,7 +51,7 @@ const VideoPlayer = ({url, isMobile, computerIsNarrowScreenXOR}) => {
         {
           //todo fixaa liian pieni videokoko ipadeilla (portrait)
           top: !computerIsNarrowScreenXOR ? '-350px' : '0px',
-          marginTop:portrait ? '600px':'400px',
+          marginTop:portrait ? '525px':'400px',
           transform: portrait ? 'scale(0.75)' : !computerIsNarrowScreenXOR? 'scale(1.2)':'scale:(0.8)',
            maxWidth:portrait?'500px':'1000px'
            }:{}}>
