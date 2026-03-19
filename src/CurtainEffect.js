@@ -28,10 +28,10 @@ const CurtainEffect = ({blurCurtains = true, top = '0'}) => {
     <div ref={containerRef} style={{ height: 'max(150vw, 150vh)', position: 'absolute', width: '100vw', left:0}}>
       <div className='curtainsWrapper'>
         <motion.img 
-            className = 'curtain' src={CurtainLeft} style={{x: curtainProgressXLeft, top:'-50px', filter: blurCurtains? curtainBlurRadius: 'none'}} alt = 'coolass curtain left side'
+            className = 'curtain' src={CurtainLeft} style={{x: curtainProgressXLeft, top:'-50px', filter: blurCurtains? curtainBlurRadius: 'none'}} alt = 'cool curtain left side'
         />
         <motion.img
-          className = 'curtain' src={CurtainRight} style = {{x: curtainProgressXRight, top:'-30px', filter: blurCurtains? curtainBlurRadius: 'none'}} alt = 'coolass curtain right side'
+          className = 'curtain' src={CurtainRight} style = {{x: curtainProgressXRight, top:'-30px', filter: blurCurtains? curtainBlurRadius: 'none'}} alt = 'cool curtain right side'
         />
         <motion.div className = 'curtainGradient' style = {{opacity:gradientOpacity}}/>
       </div>

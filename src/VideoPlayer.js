@@ -34,7 +34,7 @@ const VideoPlayer = ({url, isMobile, computerIsNarrowScreenXOR}) => {
       setIsPortrait(!(window.screen.orientation.type === 'landscape-primary' 
 ||    window.screen.orientation.type === 'landscape-secondary'));
       document.getElementById('videoPlayer').style.transform = portrait ? 'scale(0.75)': 'scale(1.25)';
-      document.getElementById('videoPlayer').style.maxWidth = portrait?'500px':'1000px';
+      document.getElementById('videoPlayer').style.maxWidth = portrait ? '500px':'1000px';
     }
     window.screen.orientation.addEventListener('change', portraitHandler);
     portraitHandler();
@@ -51,7 +51,7 @@ const VideoPlayer = ({url, isMobile, computerIsNarrowScreenXOR}) => {
         {
           //todo fixaa liian pieni videokoko ipadeilla (portrait)
           top: !computerIsNarrowScreenXOR ? '-350px' : '0px',
-          marginTop:portrait ? '525px':'400px',
+          marginTop:portrait ? '525px':'450px',
           transform: portrait ? 'scale(0.75)' : !computerIsNarrowScreenXOR? 'scale(1.2)':'scale:(0.8)',
            maxWidth:portrait?'500px':'1000px'
            }:{}}>

@@ -30,16 +30,6 @@ html{
   image-rendering:optimizeSpeed;
 }
 
-h1 { 
-  display: block;
-  font-size: 2em;
-  margin-top: 0.67em;
-  margin-bottom: 0.67em;
-  margin-left: 0;
-  margin-right: 0;
-  font-weight: bold;
-}
-
 .videoPlayer{
   box-shadow: 10px 10px 10px #1d0101;
   background-color:rgb(14,0,0);
@@ -62,6 +52,17 @@ h1 {
   }
 }
 
+h1 { 
+  display: block;
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  font-family: 'BodoniModa';
+}
+
 h2 {
   display: block;
   font-size: 1.5em;
@@ -69,7 +70,9 @@ h2 {
   margin-bottom: 0.83em;
   margin-left: 0;
   margin-right: 0;
-  font-weight: bold;
+  font-weight:normal;
+  font-family:'CroissantOne';
+  letter-spacing:0.05ch;
 }
 
 .aspectRatio {
@@ -106,7 +109,7 @@ h2 {
 }
 
 #ambilight {
-  filter: blur(max(50px, 9vw)) opacity(0.55) saturate(250%); 
+  filter: blur(max(50px, 9vw)) opacity(0.55) saturate(550%); 
   left: 0;
   pointer-events: none;
   position: absolute;
@@ -172,6 +175,23 @@ h2 {
   z-index: 3;
 }
 
+.headerMobileRight {
+  position: absolute;
+  top:2vw;
+  right:1.25vw;
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  justify-items:flex-end;
+  text-align: center;
+  align-items: center;
+  padding: 0 35px;
+  box-sizing:border-box;
+  width:100%;
+  height:100px;
+  z-index: 3;
+}
+
 
 .headerButtons{
   display:flex;
@@ -180,9 +200,85 @@ h2 {
   z-index: 1;
   gap:1.5vw;
   text-align: center;
+  cursor:pointer;
 }
 
 .headerButtons button{
+  width: 4vw;
+  height: 4vw;
+  padding:20px;
+  min-width: 45px;
+  min-height: 45px;
+  background-color:#000000;
+  border:#141414;
+  border-style:outset;
+  border-width: 5px;
+  color:rgb(204, 204, 204);
+  box-shadow: 0px 0px 10px 5px #480000;
+  display:inline-block;
+  text-align: center;
+  line-height: 0%;
+  border-radius: 42.5%;
+  transition: filter 1s ease, margin 1s ease, transform 1s ease;
+  cursor:pointer;
+  font-family: "CroissantOne";
+}
+
+.headerButtons button.activeHeaderButton{
+  background-color:#140000;
+  filter:drop-shadow(3px 4px 3px rgb(255, 255, 255));
+  box-shadow: 0px 0px 12px 5px #360505;
+  box-shadow: 0px 0px 0px 1.5px #c16969;
+  color:#ffffff;
+}
+
+.headerButtons button:hover{
+  border-style: inset;
+}
+
+.headerButtons .invisible button{
+  margin-right: -50px;
+  filter:drop-shadow(3px 4px 2px rgb(255, 255, 255)) opacity(0);
+  transform:rotate(180deg);
+  width:6.5vw;
+  height:6.5vw;
+}
+.headerButtons .visible button{
+  margin-right: 20px;
+  filter:drop-shadow(3px 4px 20px rgb(255, 255, 255)) opacity(1);
+  transform:rotate(360deg);
+  width:6.5vw;
+  height:6.5vw;
+}
+
+.headerButtons img:hover{
+  transform:scale(1.1);
+  filter: drop-shadow(3px 4px 5px rgba(150, 6, 20, 0.5)) drop-shadow(rgb(210, 6, 27) 0 0 2vw) drop-shadow(rgb(210, 6, 27) 0 0 4vw);
+}
+
+.headerButtons img {
+  animation:none;
+  width: 4vw;
+  height: 4vw;
+  transform:scale(1.0);
+  filter: drop-shadow(3px 4px 5px rgba(150, 6, 20, 0.5)) drop-shadow(rgb(158, 27, 10) 1vw 1vw 5vw) drop-shadow(rgb(73, 1, 8) 1vw 1vw 7vw);
+  transition: filter 0.3s ease, transform 0.3s ease;
+  padding:0px;
+  min-width: 40px;
+  min-height: 40px;
+  transition: filter 1s ease, transform 2s ease;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.mobileLangButtons button{
   width: 3vw;
   height: 3vw;
   padding:20px;
@@ -200,7 +296,7 @@ h2 {
   border-radius: 42.5%;
 }
 
-.headerButtons button.activeHeaderButton{
+.mobileLangButtons button.activeHeaderButton{
   background-color:#140000;
   filter:drop-shadow(3px 4px 3px rgb(255, 255, 255));
   box-shadow: 0px 0px 12px 5px #360505;
@@ -208,24 +304,12 @@ h2 {
   color:#ffffff;
 }
 
-.headerButtons button:hover{
-  border-style: inset;
-}
-
-.headerButtons img:hover{
-  transform:scale(1.1);
-  filter: drop-shadow(3px 4px 5px rgba(150, 6, 20, 0.5)) drop-shadow(rgb(210, 6, 27) 0 0 2vw) drop-shadow(rgb(210, 6, 27) 0 0 4vw);
-}
-
-.headerButtons img {
-  width: 3vw;
-  height: 3vw;
-  transform:scale(1.0);
-  filter: drop-shadow(3px 4px 5px rgba(150, 6, 20, 0.5)) drop-shadow(rgb(158, 27, 10) 1vw 1vw 5vw) drop-shadow(rgb(73, 1, 8) 1vw 1vw 7vw);
-  transition: filter 0.3s ease, transform 0.3s ease;
-  padding:0px;
-  min-width: 40px;
-  min-height: 40px;
+.mobileLangButtons button.visible{
+  background-color:#140000;
+  filter:drop-shadow(3px 4px 3px rgb(255, 255, 255));
+  box-shadow: 0px 0px 12px 5px #360505;
+  box-shadow: 0px 0px 0px 1.5px #c16969;
+  color:#ffffff;
 }
 
 /*pistää alt tekstit valkoseks*/
@@ -333,7 +417,7 @@ img {color:white}
   align-items:center;
   text-align: center; 
   position:relative;
-  z-index:3;
+  z-index:5;
   max-width: 80%;
   padding-left:10vw;
   padding-right:10vw;
@@ -382,8 +466,9 @@ img {color:white}
 }
 
 .sponsors{
-  margin-top: 5vh;
+  transform:scale(0.75);
   margin-bottom: 5vh;
+  margin-top:-10vh;
   position: relative;
   display:flex;
   flex-direction: column;
@@ -410,6 +495,17 @@ img {color:white}
   overflow:hidden;
   image-rendering:optimizeQuality;
   transform:scale(0.75);
+}
+
+.fullBackgrounGradient{
+  position:fixed;
+  top:0vh;
+  height:100vh;
+  left:0;
+  width:100%;
+  z-index:-1;
+  background-color: #631414;
+  color:#c70000;
 }
 
 @font-face {
@@ -449,6 +545,22 @@ font-family: 'Asul';
   font-family: 'Notable';
   src: url('./Fonts/Notable-Regular.ttf') format('truetype');
   font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BodoniModa';
+  src: url('./Fonts/BodoniModa-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CroissantOne';
+  src: url('./Fonts/CroissantOne-Regular.ttf') format('truetype');
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
