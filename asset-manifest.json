@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.72c165bd.css",
-    "main.js": "/static/js/main.5afb6bf2.js",
+    "main.css": "/static/css/main.7d3f775c.css",
+    "main.js": "/static/js/main.49cab6cf.js",
     "static/js/453.97214e45.chunk.js": "/static/js/453.97214e45.chunk.js",
     "static/media/curtains_wavy_right2_edited_unblurred_midres.png": "/static/media/curtains_wavy_right2_edited_unblurred_midres.efa27b3938e9ea10cf05.png",
     "static/media/curtains_wavy_left2_edited_unblurred_midres.png": "/static/media/curtains_wavy_left2_edited_unblurred_midres.8b952cb950595a01c17f.png",
@@ -9,25 +9,27 @@
     "static/media/spotlight_texturedbeam_midres.png": "/static/media/spotlight_texturedbeam_midres.8eacb5ded75f35de9a7f.png",
     "static/media/cinemascreen_replaced_screenblack.jpg": "/static/media/cinemascreen_replaced_screenblack.cc7a12a8dc0e4cec1174.jpg",
     "static/media/kaalimato_nobg.png": "/static/media/kaalimato_nobg.6bf094b3519bc217e79d.png",
+    "static/media/BodoniModa-VariableFont_opsz,wght.ttf": "/static/media/BodoniModa-VariableFont_opsz,wght.9284de3beedac3350918.ttf",
     "static/media/Limelight-Regular.ttf": "/static/media/Limelight-Regular.3776a5b3985bb9da2ea7.ttf",
     "static/media/header_underline.png": "/static/media/header_underline.cccfdc7c28ecdafa7fd9.png",
     "static/media/header.png": "/static/media/header.86227534aef33c27eb31.png",
     "static/media/DancingScript-Regular.ttf": "/static/media/DancingScript-Regular.7e203cef1079837be7e0.ttf",
+    "static/media/CroissantOne-Regular.ttf": "/static/media/CroissantOne-Regular.cc59469cb665a8ce188a.ttf",
     "static/media/Notable-Regular.ttf": "/static/media/Notable-Regular.2fb7db2f6ecfd8c14fd0.ttf",
     "static/media/Asul-Regular.ttf": "/static/media/Asul-Regular.2072d90ac9f7341e7206.ttf",
-    "static/media/earth-globe-icon.svg": "/static/media/earth-globe-icon.8f95b496730edfb76491c1c3dcfcc298.svg",
+    "static/media/earth-globe-icon.svg": "/static/media/earth-globe-icon.aa7f2d1285d258e0accf6533e1c29798.svg",
     "static/media/Friidu_Logo_Pink.svg": "/static/media/Friidu_Logo_Pink.a196e3991a5d1b9504192fe8ad2f7be4.svg",
     "static/media/junction_wordmark.svg": "/static/media/junction_wordmark.0c8702738e55f955bce4ea52f121b93c.svg",
     "index.html": "/index.html",
     "static/media/instagram.svg": "/static/media/instagram.9719488534f8c429d200362e22bec340.svg",
     "static/media/kide_app.svg": "/static/media/kide_app.c07f14dd7588133214e51b4e73372d8a.svg",
     "static/media/telegram.svg": "/static/media/telegram.2c8b5697360959523bad4af9177ea58f.svg",
-    "main.72c165bd.css.map": "/static/css/main.72c165bd.css.map",
-    "main.5afb6bf2.js.map": "/static/js/main.5afb6bf2.js.map",
+    "main.7d3f775c.css.map": "/static/css/main.7d3f775c.css.map",
+    "main.49cab6cf.js.map": "/static/js/main.49cab6cf.js.map",
     "453.97214e45.chunk.js.map": "/static/js/453.97214e45.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.72c165bd.css",
-    "static/js/main.5afb6bf2.js"
+    "static/css/main.7d3f775c.css",
+    "static/js/main.49cab6cf.js"
   ]
 }
