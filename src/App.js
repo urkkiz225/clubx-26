@@ -123,7 +123,7 @@ function App() {
             </>
         }
         <header className = "headerImage" style={{marginTop:'100px', top: isMobile ? "min(30svw:-300px)":"-2rem",
-            maxWidth: isMobile ? "100svh" : "40vw"}}>
+            maxWidth: isMobile ? !computerIsNarrowScreenXOR? "100svh" : "60%" : "40vw"}}>
             <img src={HeaderLogo} alt="header mobiili" style={{width: "100%", height: "auto", display: "block"}}/>
         </header>
         <CurtainEffect blurCurtains = {!isMobile} isMobile={isMobile}/>
@@ -135,8 +135,8 @@ function App() {
         />
         <LightsEffect isMobile={isMobile} computerIsNarrowScreenXOR = {computerIsNarrowScreenXOR}/>
         {/*seuraavan divin sisälle kaikki joka tulee logon / valonheittimien jälkeen*/}
-        {window.innerWidth < window.screen.width / 1.8 ?<div className = 'postCurtainGradient'/>:<></>}
-        <div className = 'clubXInfo' style={{position: 'absolute', width: '90%', top:isMobile ? !computerIsNarrowScreenXOR ? '1200px' : 'max(150vw,150vh)':'max(80vw,80vh)'}}>
+        {window.innerWidth < window.screen.width / 2 ?<div className = 'postCurtainGradient'/>:<></>}
+        <div className = 'clubXInfo' style={{position: 'absolute', width: '90%', top:isMobile ? !computerIsNarrowScreenXOR ? '1200px' : 'max(150vw,150vh)':'max(100vw,80vh)'}}>
             <h1>CLUB X 2026</h1>
             <h2>{formatEqualLengthText(t('ticketsale'), t('ticketsalewhen'))}</h2>
             <h2>{formatEqualLengthText(t('when'),t('time'))}</h2>
@@ -153,7 +153,7 @@ function App() {
             </div>
             <PosterTextComponent/>
             <div className = 'footer'>
-                <div className = 'footerButtons' style={{top:'-100px', marginTop: isMobile?'25px':'200px'}}>
+                <div className = 'footerButtons' style={{marginTop: isMobile?!computerIsNarrowScreenXOR?'25px':'100px':'200px'}}>
                     <img onClick={() => openLink("https://t.me/clubabsolutecinema")} src = {TelegramLogo} alt = 'telegram logo'/>
                     <img onClick={() => openLink("https://www.instagram.com/atheneclubx/")} src = {InstagramLogo} alt = 'instagram logo'/>
                     <img onClick={() => openLink("https://kide.app/events/2fac24cc-b49f-4bc9-ac51-f8d72200f1f1")} src = {KideAppLogo} alt = 'kide.app logo'/>

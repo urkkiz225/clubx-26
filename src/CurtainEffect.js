@@ -25,7 +25,7 @@ const CurtainEffect = ({blurCurtains = true, isMobile}) => {
   const curtainBlurRadius = useMotionTemplate`blur(${useTransform(scrollYProgress, [0,0.60 /*note to self väänä tästä napista jos haluut enemmän / vähemmän blurii :3*/], [12,0])}px)`; //huhhuh että framer-motionia on pelottava käyttää onneks on hyvät docsit
   //ᓚᘏᗢ
   return (
-    <div ref={containerRef} style={{ height: 'max(150vw, 150vh)', position: 'absolute', width: '100vw', left:0}}>
+    <div ref={containerRef} style={{ height: 'max(150vw, 150vh)', position: 'absolute', width: '100%', left:0}}>
       <div className='curtainsWrapper'>
         <motion.img 
           className = 'curtain' src={CurtainLeft} style={{x: curtainProgressXLeft, top:'-50px', filter: blurCurtains? curtainBlurRadius: 'none'}} alt = 'cool curtain left side'
