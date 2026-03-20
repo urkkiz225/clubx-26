@@ -2,20 +2,33 @@ import './App.css';
 import VideoPlayer from './VideoPlayer.js';
 import CurtainEffect from './CurtainEffect.js';
 import HeaderLogo from './Assets/header_underline.png'
+import FilmReelLeft from './Assets/filmreel_left.png';
+import FilmReelLeftBilinearFade from './Assets/filmreel_left_bilinear_fade.png';
+import FilmReelRight from './Assets/filmreel_right.png';
+import FilmReelRightBilinearFade from './Assets/filmreel_right_bilinear_fade.png';
 import TelegramLogo from './Assets/HeaderButtons/telegram.svg';
 import InstagramLogo from './Assets/HeaderButtons/instagram.svg';
 import KideAppLogo from './Assets/HeaderButtons/kide_app.svg';
 import JunctionWordmark from './Assets/Sponsors/junction_wordmark.svg';
-//import JunctionEmblem from './Assets/Sponsors/junction_emblem.svg';
 import Friidu from './Assets/Sponsors/Friidu_Logo_Pink.svg';
 import Kaalimato from './Assets/Sponsors/kaalimato_nobg.png';
 import { useEffect, useState, useRef } from 'react';
 import LightsEffect from './LightsEffect.js';
 import GlobeIcon from './Assets/earth-globe-icon.svg';
-import i18n from './i18n.js';
+import i18n from './i18n.js'; //react valittaa tästä mut sitä ei voi poistaa tai kaikki kusee
 import { useTranslation } from 'react-i18next';
 
+const clamp = (val, min, max) => Math.min(Math.max(val, min), max);
+
 function App() {
+    function formatEqualLengthText(str1, str2) {
+        const referenceScreenWidth = isMobile? window.innerWidth + 17.5 : 450;
+        const str1Length = str1.length;
+        const str2Length = str2.length;
+        const bufferRange = clamp((referenceScreenWidth-window.innerWidth)/2.5,0,25);
+        const dotsCount = 30-str1Length-str2Length-bufferRange;
+        return `${str1}${dotsCount/2>1?` ${". ".repeat(Math.floor(dotsCount/2))}`:': '}${str2}`;
+    }
     const [isLangButtonPressed, setIsLangButtonPressed] = useState(false); //mobiilibuttoni
     const toggleMobileLangButton = () => setIsLangButtonPressed(prev => !prev); 
     const unclickMobileLangButton = () => setIsLangButtonPressed(false);
@@ -34,13 +47,12 @@ function App() {
     const [computerIsNarrowScreenXOR, setComputerIsNarrowScreenXOR] = useState(false); //XOR jos viewport on tosi kapee mut käyttäjä ei oo mobiilil
     const imgRef = useRef(null);
     useEffect(()=>{
-        //varotuksen sana joka sekotti pariin kertaan jos pistät inspectorista mobile viewn päälle ja sit pois nii background tulee olee fucked up
         const checkMobile = () => {
-            const computerIsNarrowScreen = window.innerWidth < 850;
+            const computerIsNarrowScreen = window.innerWidth < window.screen.width / 1.8;
             const isMobileDevice = /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-            setIsMobile(isMobileDevice || (window.innerWidth < 850));
+            setIsMobile(isMobileDevice || (window.innerWidth < window.screen.width / 1.8));
             setComputerIsNarrowScreenXOR(!isMobileDevice && computerIsNarrowScreen);
-            if(isMobileDevice || (window.innerWidth < 850)){
+            if(isMobileDevice || (window.innerWidth < window.screen.width / 1.8)){
                 document.body.style.backgroundSize = "min(350svw, 350svh)"; /*pistää vaakasuunnanki mobiililla toimimaan*/
             }else{
                 document.body.style.backgroundSize = "116svw";
@@ -98,7 +110,7 @@ function App() {
                   <div className='headerButtons'>
                       <img style = {{padding:'30px'}} onClick={() => openLink("https://t.me/clubabsolutecinema")} src={TelegramLogo} alt='telegram logo' />
                       <img style = {{padding:'30px'}} onClick={() => openLink("https://www.instagram.com/atheneclubx/")} src={InstagramLogo} alt='instagram logo' />
-                      <img style = {{padding:'30px'}} onClick={() => openLink("https://kide.app/")} src={KideAppLogo} alt='kide.app logo' />
+                      <img style = {{padding:'30px'}} onClick={() => openLink("https://kide.app/events/2fac24cc-b49f-4bc9-ac51-f8d72200f1f1")} src={KideAppLogo} alt='kide.app logo' />
                 </div>
             </header>
             <header className = 'headerDesktopRight'>
@@ -114,46 +126,72 @@ function App() {
             maxWidth: isMobile ? "100svh" : "40vw"}}>
             <img src={HeaderLogo} alt="header mobiili" style={{width: "100%", height: "auto", display: "block"}}/>
         </header>
-        <CurtainEffect blurCurtains = {!isMobile}/>
+        <CurtainEffect blurCurtains = {!isMobile} isMobile={isMobile}/>
         <VideoPlayer id = 'video'
             //lisää process.env.PUBLIC_URL pathii jos haet jotai staticMedia folderista
-            url = {process.env.PUBLIC_URL + "/staticMedia/club-x_promo.MOV" }
+            url = {process.env.PUBLIC_URL + "/staticMedia/club-x_promo.mp4" }
             isMobile = {isMobile}
             computerIsNarrowScreenXOR={computerIsNarrowScreenXOR}
         />
         <LightsEffect isMobile={isMobile} computerIsNarrowScreenXOR = {computerIsNarrowScreenXOR}/>
         {/*seuraavan divin sisälle kaikki joka tulee logon / valonheittimien jälkeen*/}
-        <div className = 'clubXInfo' style={{position: 'absolute', width: '100%', top:isMobile ? !computerIsNarrowScreenXOR ? '1500px' : '1200px':'80vw'}}>
-            {/*TODO mobiiilikoossa toimiva tää, esim. automaattinen pisteiden välistä poistaja*/}
-            <h2>{isMobile?"tää teksti ei atm toimi mobiililla korjaan sen pikimmiten xd":""}</h2>
+        {window.innerWidth < window.screen.width / 1.8 ?<div className = 'postCurtainGradient'/>:<></>}
+        <div className = 'clubXInfo' style={{position: 'absolute', width: '90%', top:isMobile ? !computerIsNarrowScreenXOR ? '1200px' : '1500px':'80vw'}}>
             <h1>CLUB X 2026</h1>
-            <h2>LIPUNMYYNTI . . . . . . . . . . . PIAN!!?</h2>
-            <h2>AIKA . . . . . . . . . . . . . . . 4.2. @ 20:00</h2>
-            <h2>PAIKKA . . . . . . . . . . . . . . . . . . BMK3</h2>
+            <h2>{formatEqualLengthText(t('ticketsale'), t('ticketsalewhen'))}</h2>
+            <h2>{formatEqualLengthText(t('when'),t('time'))}</h2>
+            <h2>{formatEqualLengthText(t('where'), t('address'))}</h2>
             <h1 style = {{marginTop: '10vw'}}>{t('schedule')}</h1>
-            <h2>DOORS OPEN . . . . . . . . . . . . . . . . . . . . . 20.00</h2>
-            <h2>YLLÄTYSBÄNDI . . . . . . . . . . . . . . . . . . . . 22.00</h2>
-            <h2>PALOKUNTA . . . . . . . . . . . . . . . . . . . . . . . 23.45</h2>
-            <h2>ISAAC SENE  . . . . . . . . . . . . . . . . . . . . . . . 00.20</h2>
-            <h2>PILKKU  . . . . . . . . . . . . . . . . . . . . . . . . . . 02.00</h2>
-            <div className = 'footer'>
-                <div className = 'footerButtons' style={{ marginTop: '50px', paddingBottom: '20px' }}>
+            <h2>{formatEqualLengthText(t('doorsopen'), t('doorsopenwhen'))}</h2>
+            <h2>{formatEqualLengthText(t('band'), t('bandwhen'))}</h2>
+            <h2>{formatEqualLengthText(t('rwbk'), t('rwbkwhen'))}</h2>
+            <h2>{formatEqualLengthText(t('isaacsene'), t('isaacsenewhen'))}</h2>
+            <h2>{formatEqualLengthText(t('end'), t('endwhen'))}</h2>
+            <div style = {{filter:'drop-shadow(3px 2.5px 2.5vw #7f0000) drop-shadow(0px 0px max(5vw, 5vh) #ffffffba) drop-shadow(0px 0px min(13vw, 13vh) #ffffff73)'}}>
+                <h2 style = {{marginTop:'10vw', scale:(1.25)}}>{t('wristbandexchange')}</h2>
+                <h2 style = {{marginTop:'3vw', scale:(1.25)}}>{t('wristbandexchangewhenwhere')}</h2>
+            </div>
+            <PosterTextComponent/>
+            <div style = {{}} className = 'footer'>
+                <div className = 'footerButtons' style={{ marginTop: '100px', paddingBottom: '0px' }}>
                     <img onClick={() => openLink("https://t.me/clubabsolutecinema")} src = {TelegramLogo} alt = 'telegram logo'/>
                     <img onClick={() => openLink("https://www.instagram.com/atheneclubx/")} src = {InstagramLogo} alt = 'instagram logo'/>
-                    <img onClick={() => openLink("https://kide.app/")} src = {KideAppLogo} alt = 'kide.app logo'/>
+                    <img onClick={() => openLink("https://kide.app/events/2fac24cc-b49f-4bc9-ac51-f8d72200f1f1")} src = {KideAppLogo} alt = 'kide.app logo'/>
                 </div>
             </div>
             <h1>{t('sponsors')}</h1>
             <div className = 'sponsors' style = {{overflowX:'hidden'}}>
-                <img src = {JunctionWordmark} alt = 'Junction wordmark sponsor'/>
-                <img style = {{scale:(0.625)}} src = {Friidu} alt = 'Friidu logo sponsor'/>
-                <img style = {{scale:(0.88)}} src = {Kaalimato} alt = 'Kaalimato logo sponsor'/>
+                <img src = {JunctionWordmark} alt = 'Junction wordmark sponsor' loading = "lazy"/> {/*nää kuvat jostai syystä muutamaan otteeseen jämäytti kaiken lataamisen*/}
+                <img style = {{scale:(0.625), transform:'translateY(20%)'}} src = {Friidu} alt = 'Friidu logo sponsor' loading = "lazy"/>
+                <img style = {{scale:(0.88)}} src = {Kaalimato} alt = 'Kaalimato logo sponsor' loading = "lazy"/>
             </div>
+            <img className = 'filmReelBottomLeft' src = {FilmReelLeft} alt = 'footer film reel effect right'/>
+            <img style = {{animation: 'moveReel 30s cubic-bezier(.56,.03,.71,.96) infinite'}} className = 'filmReelBottomLeft' src = {FilmReelLeftBilinearFade} alt = 'footer film reel effect right'/>
+            <img className = 'filmReelBottomRight' src = {FilmReelRight} alt = 'footer film reel effect right'/>
+            <img style = {{animation: 'moveReel 24s cubic-bezier(.56,.03,.71,.96) infinite'}} className = 'filmReelBottomRight' src = {FilmReelRightBilinearFade} alt = 'footer film reel effect right'/>
+            {!isMobile || computerIsNarrowScreenXOR ? <div className = 'bottomLinks'><a target="_blank" rel="noopener noreferrer" href = "https://github.com/urkkiz225/clubx-26" style = {{color:"#5f0000"}}>GitHub</a> v{process.env.REACT_APP_VERSION}</div>:<></>}
         </div>
     </div>
   );
 }
 export default App;
+
+const PosterTextComponent = () =>{
+    const smallFontSize = '2.7vw';
+    const medFontSize = '3.5vw';
+    return (
+<div style={{transform: 'scale(1.35)', filter: 'drop-shadow(3px 2.5px 50px #5200005d)'}}>
+    <div className="sth2s" style={{marginTop: '12.5vw' }}>ONLY IN OTANIEMI</div>
+    <div className="sth2l">APRIL 2<span style={{fontSize: smallFontSize}}> AT </span>BMK3</div>
+    <div className="sth2" style={{marginTop: '3vw'}}>ATHENE <span style={{ fontSize: smallFontSize}}>PRESENTS</span></div>
+    <div className="sth2">"CLUB ABSOLUTE CINEMA"<span style={{fontSize: smallFontSize}}> STARRING </span>ISAAC SENE</div>
+    <div className="sth2s">DIRECTED BY<span style={{fontSize: medFontSize}}> PHUKSIT'25</span></div>
+    <div className="sth2s">DRESS CODE<span style={{fontSize: medFontSize}}> "MAIN CHARACTER"</span></div>
+    <div className="sth2s">JOIN THE CAST<span style={{fontSize: medFontSize}}> TELEGRAM @CLUBABSOLUTECINEMA</span></div>
+    <div className="sth2s">FOLLOW THE PREMIERE<span style={{fontSize: medFontSize}}> INSTAGRAM @ATHENECLUBX</span></div>
+</div>
+    )
+}
 
 /*
 

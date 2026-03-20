@@ -16,11 +16,12 @@ const LightsEffect = ({isMobile, computerIsNarrowScreenXOR}) => {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target:containerRef.current, offset: (isMobile && !computerIsNarrowScreenXOR)
-      ?(portrait?["50vh start","130vh start"]
-      :["35vh start","120vh start"])
+      ?(portrait?["85vw start","200vw start"]
+      :["20vw start","135vw start"])
       :!computerIsNarrowScreenXOR 
-      ?["40vw start","130vw start"]
-      :["10vh start","130vh start"]
+      ?["30vw start","155vw start"]
+      :["30vw start","155vw start"]
+      /*todo tee täst selkeempi (pikselivaluet?)*/
   });
   const smoothProgress = useSpring(scrollYProgress, {stiffness: 250, damping: 40,
   restDelta: 0.001
@@ -29,8 +30,8 @@ const LightsEffect = ({isMobile, computerIsNarrowScreenXOR}) => {
   const rightLightBeamRot = useTransform(smoothProgress, [0, 0.1, 0.5, 1], [90, 80, 20, 20]);
   const beamOpacity = useTransform(scrollYProgress, [0,0.3], [0,0.5])
   return (
-    <div ref={containerRef} style={{ height: 'max(300svw, 300svh)', position: 'absolute', width: '100%', top:!computerIsNarrowScreenXOR ? '0vw': '40vw'}}>
-      <div className='lightsWrapper' style = {{top:'10vw'}}>
+    <div ref={containerRef} style={{ height: 'max(200svw, 200svh)', position: 'absolute', width: '100%', top:!computerIsNarrowScreenXOR ? '0vw': '0vw'}}>
+      <div className='lightsWrapper' style = {{top:'30vw'}}>
         <motion.img 
           className = 'lightBeamRight' src={spotLightBeam} style={{rotate:rightLightBeamRot, scale:isMobile?('4'):('2'), scaleY:('0.8'), opacity:beamOpacity}} alt = 'light beam right'
         />
@@ -38,7 +39,7 @@ const LightsEffect = ({isMobile, computerIsNarrowScreenXOR}) => {
           className = 'lightBeamLeft' src={spotLightBeam} style={{rotate:leftLightBeamRot, scale:isMobile?('4'):('2'), scaleY:('0.8'), opacity:beamOpacity, left:isMobile?'-99%':'-91%'}} alt = 'light beam left'
         />
         <motion.img
-          className = 'spotLightLogo' src = {clubXLogo} style = {{width:isMobile?'55vw':'20vw', bottom:isMobile ?'58%':'68.5%', minWidth:isMobile?'200px':'400px'}}
+          className = 'spotLightLogo' src = {clubXLogo} style = {{width:isMobile?'55vw':'20vw', bottom:isMobile ?'28%':'52.5%', minWidth:isMobile?'200px':'400px'}}
         />
       </div>
     </div>

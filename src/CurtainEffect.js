@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform, useSpring, useMotionTemplate } from 'f
 import CurtainLeft from './Assets/curtains_wavy_left2_edited_unblurred_midres.png';
 import CurtainRight from './Assets/curtains_wavy_right2_edited_unblurred_midres.png';
 
-const CurtainEffect = ({blurCurtains = true, top = '0'}) => {
+const CurtainEffect = ({blurCurtains = true, isMobile}) => {
   var portrait = window.screen.orientation.type === 'landscape-primary' 
   || window.screen.orientation.type === 'landscape-secondary';
   window.screen.orientation.addEventListener('change', () => {
@@ -14,11 +14,11 @@ const CurtainEffect = ({blurCurtains = true, top = '0'}) => {
   //i HATE userefs!!!1!!!!
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
-    target:containerRef, offset:portrait?["15% start","35% start"]:["15% start", "35% start"]
+    target:containerRef, offset:portrait?isMobile?["15vh start","100vh start"]:["25vh start","100vh start"]:["15% start", "35% start"]
   });
   const smoothProgress = useSpring(scrollYProgress, {stiffness: 100, damping: 30, /*mietin nii pitkään miks kaikki pomppi ku unohin et tää animation method on legit sellane vieterimäine ja arvo oli jossai viides defaulttin :sob:*/
   restDelta: 0.001
-});
+  });
   const curtainProgressXLeft = useTransform(smoothProgress, [0, 1.75], ['-100%', '0%']); //äähhh menee aivot solmuun krkrääähähh ᓚᘏᗢ
   const curtainProgressXRight = useTransform(smoothProgress, [0, 1.75], ['100%', '0%']);
   const gradientOpacity = useTransform(scrollYProgress, [0,1], [/*opacity -0.2 tuntuu vähän rankalta emt pitäskö tää tehä tälleen :DD*/-0.2,1])
@@ -28,7 +28,7 @@ const CurtainEffect = ({blurCurtains = true, top = '0'}) => {
     <div ref={containerRef} style={{ height: 'max(150vw, 150vh)', position: 'absolute', width: '100vw', left:0}}>
       <div className='curtainsWrapper'>
         <motion.img 
-            className = 'curtain' src={CurtainLeft} style={{x: curtainProgressXLeft, top:'-50px', filter: blurCurtains? curtainBlurRadius: 'none'}} alt = 'cool curtain left side'
+          className = 'curtain' src={CurtainLeft} style={{x: curtainProgressXLeft, top:'-50px', filter: blurCurtains? curtainBlurRadius: 'none'}} alt = 'cool curtain left side'
         />
         <motion.img
           className = 'curtain' src={CurtainRight} style = {{x: curtainProgressXRight, top:'-30px', filter: blurCurtains? curtainBlurRadius: 'none'}} alt = 'cool curtain right side'
