@@ -226,7 +226,6 @@ h2 {
   z-index: 3;
 }
 
-/*näissä napeissa on nii paljon samaa että vois varmaan yhistää yheks css classiks, mutta pelkään et joudun muokkaa jotai yksittäist mobile nappi kokoelmaa jollon hajois*/
 .headerButtons{
   display:flex;
   width: auto;
@@ -240,7 +239,6 @@ h2 {
 .headerButtons button{
   width: 4vw;
   height: 4vw;
-  padding:20px;
   min-width: 45px;
   min-height: 45px;
   background-color:#000000;
@@ -255,8 +253,11 @@ h2 {
   border-radius: 42.5%;
   transition: filter 0.5s ease, margin 0.5s ease, transform 0.5s ease;
   cursor:pointer;
-  font-size:max(0.75vw,0.75vh);
+  font-size:13px;
   font-family: "CroissantOne";
+  white-space: nowrap;
+  text-wrap: nowrap;
+  text-indent: 2.5px;
 }
 
 .headerButtons button.activeHeaderButton{
@@ -310,40 +311,6 @@ h2 {
   to {
     transform: rotate(360deg);
   }
-}
-
-.mobileLangButtons button{
-  width: 3vw;
-  height: 3vw;
-  padding:20px;
-  min-width: 45px;
-  min-height: 45px;
-  background-color:#000000;
-  border:#141414;
-  border-style:outset;
-  border-width: 5px;
-  color:rgb(204, 204, 204);
-  box-shadow: 0px 0px 10px 5px #480000;
-  display:inline-block;
-  text-align: center;
-  line-height: 0%;
-  border-radius: 42.5%;
-}
-
-.mobileLangButtons button.activeHeaderButton{
-  background-color:#140000;
-  filter:drop-shadow(3px 4px 3px rgb(255, 255, 255));
-  box-shadow: 0px 0px 12px 5px #360505;
-  box-shadow: 0px 0px 0px 1.5px #c16969;
-  color:#ffffff;
-}
-
-.mobileLangButtons button.visible{
-  background-color:#140000;
-  filter:drop-shadow(3px 4px 3px rgb(255, 255, 255));
-  box-shadow: 0px 0px 12px 5px #360505;
-  box-shadow: 0px 0px 0px 1.5px #c16969;
-  color:#ffffff;
 }
 
 /*pistää alt tekstit valkoseks*/
