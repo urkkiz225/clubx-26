@@ -122,7 +122,6 @@ h2 {
   align-items: center;
   justify-content: center;
   position: relative;
-  width: max(50svw, 50svh);
   min-width: 50px;
 }
 
@@ -171,9 +170,10 @@ h2 {
 
 .headerImage {
   position: absolute;
-  width:min(100svw, 100svw);
+  width: 100svw;
   display:flex;
   justify-content: center;
+  z-index: 2;
 }
 
 .headerDesktopLeft {

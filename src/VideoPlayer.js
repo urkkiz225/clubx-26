@@ -49,11 +49,15 @@ const VideoPlayer = ({url, isMobile, computerIsNarrowScreenXOR}) => {
       <div className="videoWrapper" id = 'videoPlayer' style = {
         isMobile ?
         {
+          width: !computerIsNarrowScreenXOR?'max(60vw, 60vh)':'min(80vw, 80vh)',
           top: '-350px',
-          marginTop:portrait ? '525px':'450px',
-          transform: portrait ? 'scale(0.75)' : !computerIsNarrowScreenXOR ? 'scale(1.2)':'scale:(0.8)',
-          maxWidth:portrait?'500px':'1000px',
-          }:{}}>
+          marginTop:portrait||computerIsNarrowScreenXOR?'525px':'420px',
+          scale:portrait ? 1 : 0.9
+          }:{
+            width: 'max(60vw, 60vh)',
+            scale:0.65, 
+            top:'-20%'
+          }}>
           <div className="ambilightWrapper">
               <div className="aspectRatio">
                   <video id="video" className='videoPlayer'

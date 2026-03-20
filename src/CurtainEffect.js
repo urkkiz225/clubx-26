@@ -1,20 +1,20 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 //shoutout framer-motion pkg greatest animation package of all time
 import { motion, useScroll, useTransform, useSpring, useMotionTemplate } from 'framer-motion';
 import CurtainLeft from './Assets/curtains_wavy_left2_edited_unblurred_midres.png';
 import CurtainRight from './Assets/curtains_wavy_right2_edited_unblurred_midres.png';
 
 const CurtainEffect = ({blurCurtains = true, isMobile}) => {
-  var portrait = window.screen.orientation.type === 'landscape-primary' 
-  || window.screen.orientation.type === 'landscape-secondary';
+  const [portrait, setPortrait] = useState(!(window.screen.orientation.type === 'landscape-primary' 
+  || window.screen.orientation.type === 'landscape-secondary'));
   window.screen.orientation.addEventListener('change', () => {
-      portrait = window.screen.orientation.type === 'landscape-primary' 
-    || window.screen.orientation.type === 'landscape-secondary';
+      setPortrait(!(window.screen.orientation.type === 'landscape-primary' 
+  || window.screen.orientation.type === 'landscape-secondary'));
   });
   //i HATE userefs!!!1!!!!
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
-    target:containerRef, offset:portrait?isMobile?["15vh start","100vh start"]:["25vh start","100vh start"]:["15% start", "35% start"]
+    target:containerRef, offset:portrait?isMobile?["15vh start","100vh start"]:["25vh start","100vh start"]:["25% start", "45% start"]
   });
   const smoothProgress = useSpring(scrollYProgress, {stiffness: 100, damping: 30, /*mietin nii pitkään miks kaikki pomppi ku unohin et tää animation method on legit sellane vieterimäine ja arvo oli jossai viides defaulttin :sob:*/
   restDelta: 0.001
