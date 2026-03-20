@@ -1,10 +1,11 @@
 {
   "files": {
-    "main.css": "/static/css/main.c18f3f28.css",
-    "main.js": "/static/js/main.77a0bfcc.js",
+    "main.css": "/static/css/main.89f14b7d.css",
+    "main.js": "/static/js/main.69ad7e72.js",
     "static/js/453.97214e45.chunk.js": "/static/js/453.97214e45.chunk.js",
     "static/media/curtains_wavy_right2_edited_unblurred_midres.png": "/static/media/curtains_wavy_right2_edited_unblurred_midres.efa27b3938e9ea10cf05.png",
     "static/media/curtains_wavy_left2_edited_unblurred_midres.png": "/static/media/curtains_wavy_left2_edited_unblurred_midres.8b952cb950595a01c17f.png",
+    "static/media/CormorantSC-Bold.ttf": "/static/media/CormorantSC-Bold.0447b10f31321f3fc2aa.ttf",
     "static/media/Montserrat-Regular.ttf": "/static/media/Montserrat-Regular.b2667c142af0523f081c.ttf",
     "static/media/spotlight_texturedbeam_midres.png": "/static/media/spotlight_texturedbeam_midres.8eacb5ded75f35de9a7f.png",
     "static/media/cinemascreen_replaced_screenblack.jpg": "/static/media/cinemascreen_replaced_screenblack.cc7a12a8dc0e4cec1174.jpg",
@@ -14,6 +15,13 @@
     "static/media/header_underline.png": "/static/media/header_underline.cccfdc7c28ecdafa7fd9.png",
     "static/media/header.png": "/static/media/header.86227534aef33c27eb31.png",
     "static/media/DancingScript-Regular.ttf": "/static/media/DancingScript-Regular.7e203cef1079837be7e0.ttf",
+    "static/media/gabriele-bad.ttf": "/static/media/gabriele-bad.9e49d8a54085ab437c34.ttf",
+    "static/media/filmreel_left_bilinear_fade.png": "/static/media/filmreel_left_bilinear_fade.187ffd6001b8da8c4560.png",
+    "static/media/filmreel_left.png": "/static/media/filmreel_left.b84ca43fa2a094601fb9.png",
+    "static/media/filmreel_right_bilinear_fade.png": "/static/media/filmreel_right_bilinear_fade.58b35e723cd72622b2d2.png",
+    "static/media/filmreel_right.png": "/static/media/filmreel_right.6c9b259a2f00bf78c65c.png",
+    "static/media/Bayon-Regular.ttf": "/static/media/Bayon-Regular.3e50c263cbd4b930be3e.ttf",
+    "static/media/NK57 Monospace Cd Rg.otf": "/static/media/NK57 Monospace Cd Rg.5070f2755a276c5b800c.otf",
     "static/media/CroissantOne-Regular.ttf": "/static/media/CroissantOne-Regular.cc59469cb665a8ce188a.ttf",
     "static/media/Notable-Regular.ttf": "/static/media/Notable-Regular.2fb7db2f6ecfd8c14fd0.ttf",
     "static/media/Asul-Regular.ttf": "/static/media/Asul-Regular.2072d90ac9f7341e7206.ttf",
@@ -24,12 +32,12 @@
     "static/media/instagram.svg": "/static/media/instagram.9719488534f8c429d200362e22bec340.svg",
     "static/media/kide_app.svg": "/static/media/kide_app.c07f14dd7588133214e51b4e73372d8a.svg",
     "static/media/telegram.svg": "/static/media/telegram.2c8b5697360959523bad4af9177ea58f.svg",
-    "main.c18f3f28.css.map": "/static/css/main.c18f3f28.css.map",
-    "main.77a0bfcc.js.map": "/static/js/main.77a0bfcc.js.map",
+    "main.89f14b7d.css.map": "/static/css/main.89f14b7d.css.map",
+    "main.69ad7e72.js.map": "/static/js/main.69ad7e72.js.map",
     "453.97214e45.chunk.js.map": "/static/js/453.97214e45.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c18f3f28.css",
-    "static/js/main.77a0bfcc.js"
+    "static/css/main.89f14b7d.css",
+    "static/js/main.69ad7e72.js"
   ]
 }
