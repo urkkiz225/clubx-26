@@ -16,10 +16,10 @@ const LightsEffect = ({isMobile, computerIsNarrowScreenXOR}) => {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target:containerRef.current, offset: (isMobile && !computerIsNarrowScreenXOR)
-      ?(portrait?["85vw start","200vw start"]
-      :["20vw start","135vw start"])
+      ?(portrait?["125vw start","240vw start"]
+      :["10vw start","120vw start"])
       :!computerIsNarrowScreenXOR 
-      ?["30vw start","155vw start"]
+      ?["20vw start","145vw start"]
       :["30vw start","155vw start"]
       /*todo tee täst selkeempi (pikselivaluet?)*/
   });

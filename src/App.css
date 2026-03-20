@@ -637,7 +637,7 @@ font-family: 'Asul';
 @font-face {
   font-family: 'BodoniModa';
   src: url('./Fonts/BodoniModa-VariableFont_opsz,wght.ttf') format('truetype');
-  font-weight: normal;
+  font-weight: 425;
   font-style: normal;
   font-display: swap;
 }
