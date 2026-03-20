@@ -153,7 +153,7 @@ function App() {
             </div>
             <PosterTextComponent/>
             <div style = {{}} className = 'footer'>
-                <div className = 'footerButtons' style={{ marginTop: '100px', paddingBottom: '0px' }}>
+                <div className = 'footerButtons' style={{ marginTop: '150px', paddingBottom: '0px' }}>
                     <img onClick={() => openLink("https://t.me/clubabsolutecinema")} src = {TelegramLogo} alt = 'telegram logo'/>
                     <img onClick={() => openLink("https://www.instagram.com/atheneclubx/")} src = {InstagramLogo} alt = 'instagram logo'/>
                     <img onClick={() => openLink("https://kide.app/events/2fac24cc-b49f-4bc9-ac51-f8d72200f1f1")} src = {KideAppLogo} alt = 'kide.app logo'/>
@@ -180,7 +180,7 @@ const PosterTextComponent = () =>{
     const smallFontSize = '2.7vw';
     const medFontSize = '3.5vw';
     return (
-<div style={{transform: 'scale(1.35)', filter: 'drop-shadow(3px 2.5px 50px #5200005d)'}}>
+<div style={{transform: 'scale(1.5)', filter: 'drop-shadow(3px 2.5px 50px #5200005d)'}}>
     <div className="sth2s" style={{marginTop: '12.5vw' }}>ONLY IN OTANIEMI</div>
     <div className="sth2l">APRIL 2<span style={{fontSize: smallFontSize}}> AT </span>BMK3</div>
     <div className="sth2" style={{marginTop: '3vw'}}>ATHENE <span style={{ fontSize: smallFontSize}}>PRESENTS</span></div>
