@@ -30,7 +30,7 @@ const LightsEffect = ({isMobile, computerIsNarrowScreenXOR}) => {
   const rightLightBeamRot = useTransform(smoothProgress, [0, 0.1, 0.5, 1], [90, 80, 20, 20]);
   const beamOpacity = useTransform(scrollYProgress, [0,0.3], [0,0.5])
   return (
-    <div ref={containerRef} style={{ height: 'max(200svw, 200svh)', position: 'absolute', width: '100%', top:!computerIsNarrowScreenXOR ? '0vw': '0vw'}}>
+    <div ref={containerRef} style={{ height: 'max(200svw, 200svh)', position: 'absolute', width: '100%', top:!computerIsNarrowScreenXOR ? '0vw': 'max(30vw,30vh)'}}>
       <div className='lightsWrapper' style = {{top:'30vw'}}>
         <motion.img 
           className = 'lightBeamRight' src={spotLightBeam} style={{rotate:rightLightBeamRot, scale:isMobile?('4'):('2'), scaleY:('0.8'), opacity:beamOpacity}} alt = 'light beam right'

@@ -1,9 +1,7 @@
 body {
   background-color: rgb(0, 0, 0);
-  overflow-x:hidden;
-  overflow-y:hidden;
+  overflow:hidden;
   background-image: radial-gradient(transparent, black), radial-gradient(transparent, rgba(0,0,0,0.4)), linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.9)), url("./Assets/cinemascreen_replaced_screenblack.jpg");
-  background-color: #000000;
   background-size: auto 66%;
   background-position: top center;
   background-repeat: no-repeat;
@@ -25,13 +23,11 @@ html{
   flex-direction: column;
   align-items: center;
   text-align: center;
-  overflow-x:hidden;
-  overflow-y:hidden;
+  overflow:hidden;
   image-rendering:optimizeSpeed;
 }
 
 .videoPlayer{
-  box-shadow: 10px 10px 10px #1d0101;
   background-color:rgb(14,0,0);
   box-shadow: 0 0 10px #747474, 0 0 20px #1b0303, 0 0 300px #1b0303;
   animation: shiftBorderColor 16s linear infinite;
@@ -42,14 +38,14 @@ html{
 }
 
 @keyframes shiftBorderColor {
-  from {
-    border-color: #141414;
+  0% {
+    border-color: #000000;
   }
-  to {
-    border-color: #0c0000;
+  50% {
+    border-color: #313131;
   }
-  to {
-    border-color: #141414;
+  100% {
+    border-color: #000000;
   }
 }
 
@@ -84,7 +80,6 @@ h2 {
   margin-right: 0;
   font-weight:normal;
   font-family:'Bayon';
-  letter-spacing:0.05em;
   margin-top:-2.9vw;
   color:#8a0000;
   filter: drop-shadow(0.2vw 0.2vw 0px #5b0000);
@@ -98,7 +93,6 @@ h2 {
   font-size: 5vw;
   font-weight:normal;
   font-family:'Bayon';
-  letter-spacing:0.05em;
   margin-top:-2.9vw;
   color:#8a0000;
   filter: drop-shadow(0.2vw 0.2vw 0px #5b0000);
@@ -110,7 +104,6 @@ h2 {
   font-size: 2.7vw;
   font-weight:normal;
   font-family:'Bayon';
-  letter-spacing:0.05em;
   margin-top:-2.9vw;
   color:#8a0000;
   filter: drop-shadow(0.2vw 0.2vw 0px #5b0000);
@@ -130,7 +123,7 @@ h2 {
   justify-content: center;
   position: relative;
   width: max(40svw, 450px);
-  min-width: 100px;
+  min-width: 50px;
 }
 
 .ambilightWrapper {
@@ -233,7 +226,7 @@ h2 {
   z-index: 3;
 }
 
-
+/*näissä napeissa on nii paljon samaa että vois varmaan yhistää yheks css classiks, mutta pelkään et joudun muokkaa jotai yksittäist mobile nappi kokoelmaa jollon hajois*/
 .headerButtons{
   display:flex;
   width: auto;
@@ -472,8 +465,8 @@ img {color:white}
   position:relative;
   z-index:5;
   max-width: 90%;
-  padding-left:5.5vw;
-  padding-right:5.5vw;
+  padding-left:5vw;
+  padding-right:5vw;
   margin-left: -2vw;
   margin-right:-2vw;
   margin-top:15vw;
@@ -482,8 +475,8 @@ img {color:white}
 
 .footer{
   margin-top: -5vh;
-  margin-bottom:-5vh;
-  padding: 15vh;
+  margin-bottom:min(-5vw, -5vh);
+  padding: max(7.5vw, 7.5vh);
   position: relative;
   display:flex;
   flex-direction: row;

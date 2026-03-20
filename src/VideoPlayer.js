@@ -49,11 +49,10 @@ const VideoPlayer = ({url, isMobile, computerIsNarrowScreenXOR}) => {
       <div className="videoWrapper" id = 'videoPlayer' style = {
         isMobile ?
         {
-          //todo fixaa liian pieni videokoko ipadeilla (portrait)
-          top: !computerIsNarrowScreenXOR ? '-350px' : '0px',
+          top: !computerIsNarrowScreenXOR ? '-350px' : 'min(-27.5vw,-12.5vh)',
           marginTop:portrait ? '525px':'450px',
           transform: portrait ? 'scale(0.75)' : !computerIsNarrowScreenXOR? 'scale(1.2)':'scale:(0.8)',
-           maxWidth:portrait?'500px':'1000px'
+           maxWidth:!computerIsNarrowScreenXOR?portrait?'500px':'1000px':''
            }:{}}>
           <div className="ambilightWrapper">
               <div className="aspectRatio">
