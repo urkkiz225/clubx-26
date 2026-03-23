@@ -518,7 +518,7 @@ img {color:white}
 .filmReelBottomLeft{
   position:absolute;
   bottom:0vw;
-  left:1vw;
+  left:0vw;
   width:10%;
   filter: opacity(0.25) contrast(125%) drop-shadow(3px 4px 5px rgba(150, 6, 20, 0.5)) drop-shadow(rgb(61, 4, 10) 0 0 0.75vw) drop-shadow(rgb(56, 5, 10)0 0 1.5vw);
 }
