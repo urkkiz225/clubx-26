@@ -13,11 +13,12 @@
     "doorsopenwhen": "20.00",
     "band":"TISDAG",
     "bandwhen":"22.00",
-    "rwbk":"PALOKUNTA",
+    "rwbk":"TORVIMUSIIKKIA",
     "rwbkwhen":"23.45",
     "isaacsene":"ISAAC SENE",
     "isaacsenewhen":"00:20",
     "end":"PILKKU",
     "endwhen":"02.00",
-    "sponsors": "CLUB ÄXÄÄ TUKEMASSA:"
+    "sponsors": "CLUB ÄXÄÄ TUKEMASSA:", 
+    "buyticketshere": "OSTA LIPUT"
 }

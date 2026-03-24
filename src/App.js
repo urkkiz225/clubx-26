@@ -141,6 +141,9 @@ function App() {
             <h2>{formatEqualLengthText(t('ticketsale'), t('ticketsalewhen'))}</h2>
             <h2>{formatEqualLengthText(t('when'),t('time'))}</h2>
             <h2>{formatEqualLengthText(t('where'), t('address'))}</h2>
+            <div style = {{filter:'drop-shadow(3px 2.5px 2.5vw #7f0000) drop-shadow(0px 0px max(5vw, 5vh) #ffffff) drop-shadow(0px 0px min(13vw, 13vh) #ffffff)', textDecoration:'underline', scale:1.15, cursor:'pointer', marginTop:isMobile?'4.5vh':'1vw', marginBottom:isMobile?'4.5vh':'1vw'}}>
+                <h2 style = {{marginTop:'10vw', scale:(1.25)}} onClick={() => openLink("https://kide.app/events/2fac24cc-b49f-4bc9-ac51-f8d72200f1f1")}>{t('buyticketshere')}</h2>
+            </div>
             <h1 style = {{marginTop: '10vw'}}>{t('schedule')}</h1>
             <h2>{formatEqualLengthText(t('doorsopen'), t('doorsopenwhen'))}</h2>
             <h2>{formatEqualLengthText(t('band'), t('bandwhen'))}</h2>

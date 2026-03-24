@@ -498,7 +498,7 @@ img {color:white}
   overflow:hidden;
   padding-bottom:5vw;
   filter:drop-shadow(rgba(153, 44, 44, 0.662) 1vw 1vw 15vw) drop-shadow(rgba(147, 147, 147, 0.584) 1vw 1vw 20vw);;
-  
+  z-index: 30;
 }
 
 .sponsors img{
