@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.3145a806.css",
-    "main.js": "/static/js/main.0b1769e2.js",
+    "main.js": "/static/js/main.8fafbaab.js",
     "static/js/453.97214e45.chunk.js": "/static/js/453.97214e45.chunk.js",
     "static/media/curtains_wavy_right2_edited_unblurred_midres.png": "/static/media/curtains_wavy_right2_edited_unblurred_midres.efa27b3938e9ea10cf05.png",
     "static/media/curtains_wavy_left2_edited_unblurred_midres.png": "/static/media/curtains_wavy_left2_edited_unblurred_midres.8b952cb950595a01c17f.png",
@@ -33,11 +33,11 @@
     "static/media/kide_app.svg": "/static/media/kide_app.c07f14dd7588133214e51b4e73372d8a.svg",
     "static/media/telegram.svg": "/static/media/telegram.2c8b5697360959523bad4af9177ea58f.svg",
     "main.3145a806.css.map": "/static/css/main.3145a806.css.map",
-    "main.0b1769e2.js.map": "/static/js/main.0b1769e2.js.map",
+    "main.8fafbaab.js.map": "/static/js/main.8fafbaab.js.map",
     "453.97214e45.chunk.js.map": "/static/js/453.97214e45.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3145a806.css",
-    "static/js/main.0b1769e2.js"
+    "static/js/main.8fafbaab.js"
   ]
 }
