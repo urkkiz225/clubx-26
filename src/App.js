@@ -22,6 +22,8 @@ const clamp = (val, min, max) => Math.min(Math.max(val, min), max);
 
 function App() {
     function formatEqualLengthText(str1, str2) {
+        /*TODO lisää automaattisesti tasan puolet pisteen leveydestä oleva no-break space unicode U+00A0, 
+        kun pisteiden leveys ei mene tasan ei-monospace fontin takia tasan. finnish.json:sta löytyy esimerkki avaimella atk.*/
         const referenceScreenWidth = isMobile? window.innerWidth + 17.5 : 450;
         const str1Length = str1.length;
         const str2Length = str2.length;
@@ -147,6 +149,7 @@ function App() {
             <h1 style = {{marginTop: '10vw'}}>{t('schedule')}</h1>
             <h2>{formatEqualLengthText(t('doorsopen'), t('doorsopenwhen'))}</h2>
             <h2>{formatEqualLengthText(t('band'), t('bandwhen'))}</h2>
+            <h2>{formatEqualLengthText(t('atk'), t('atkwhen'))}</h2>
             <h2>{formatEqualLengthText(t('rwbk'), t('rwbkwhen'))}</h2>
             <h2>{formatEqualLengthText(t('isaacsene'), t('isaacsenewhen'))}</h2>
             <h2>{formatEqualLengthText(t('end'), t('endwhen'))}</h2>
